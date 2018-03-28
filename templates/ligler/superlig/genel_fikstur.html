@@ -1,0 +1,136 @@
+<div class="btn-group fikstur">
+  <button type="button" class="btn btn-warning hafta">Hafta</button>
+  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="" id="" href="#">1.Hafta</a></li>
+    <li><a class="" id =""href="#">2.Hafta</a></li>
+    <li><a href="#">3.Hafta</a></li> 
+  </ul>
+</div>
+
+  <table  class="table table-bordered ">
+{% for mac in fikstur2 %}
+    <tbody class="maclarım">
+		
+      <tr class="success goster">
+	
+		
+		<td class="col-md-2">{{mac.mac_saati.date}}</td>
+        <td class="col-md-10">{{mac.takım1.isim}} {%if mac.macın_durumu == "baslamadı" %} -  {% else %}{{mac.takım1_skor}} - {{mac.takım2_skor}} {% endif %} {{mac.takım2.isim}}</td>
+      
+       
+		
+     
+		
+      
+		
+      </tr>
+<tr>
+	<td><b>Ev sahibi 11</td>
+	<td></b>  {% for gol in mac.ilkonbir1.all %}{{gol.isim}}  {% endfor %} </td> 
+</tr> 
+
+<tr>
+	<td><b>Konuk Takım 11</td>
+	<td></b>  {% for gol in mac.ilkonbir2.all %}{{gol.isim}}  {% endfor %} </td> 
+</tr> 
+	  
+<tr>
+	<td><b>Goller</b></td>
+	<td></b>  {% for gol in mac.golekle1_set.all %}{{gol.futbolcu.isim}} {{gol.golun_dakikası}} {% endfor %} - {% for gol in mac.golekle2_set.all %}{{gol.futbolcu.isim}} {{gol.golun_dakikası}} {% endfor %}</td>
+	
+</tr>
+
+<tr>
+	<td><b>Asist</b></td>
+	<td>  {% for gol in mac.asistekle1_set.all %} {{gol.futbolcu.isim}} {% endfor %} - {% for gol in mac.asistekle2_set.all %} {{gol.futbolcu.isim}} {% endfor %}</td>	  
+</tr>
+
+<tr>
+	<td>   <b>Sarı Kartlar</b></td>  
+	<td>{% for gol in mac.sarıekle1_set.all %}{{gol.futbolcu.isim}} {% endfor %} - {% for gol in mac.sarıekle2_set.all %}{{gol.futbolcu.isim}} {% endfor %}   </td>
+</tr>
+
+<tr>
+	<td>  <b>Kırmızı Kartlar</b> </td> 
+	<td>{% for gol in mac.kırmızıekle1_set.all %} {{gol.futbolcu.isim}}  {% endfor %} - {% for gol in mac.kırmızıekle2_set.all %} {{gol.futbolcu.isim}}  {% endfor %} </td>
+</tr>
+
+<tr>
+	<td><b>Oyuna Girenler</b></td>
+	<td>{% for gol in mac.girenler1.all %}{{gol.futbolcu.isim}}  {% endfor %} -{% for gol in mac.girenler2.all %}{{gol.futbolcu.isim}}  {% endfor %}</td> 
+	
+</tr> 
+
+<tr>
+	<td><b>Oyundan Çıkanlar</b></td>
+	<td>{% for gol in mac.cıkanlar1.all %} {{gol.futbolcu.isim}}  {% endfor %} - {% for gol in mac.cıkanlar2.all %}{{gol.futbolcu.isim}}  {% endfor %}</td> 
+	
+</tr> 
+
+<tr>
+	<td><b>Topla Oynama</b></td>
+	<td>%{{mac.topla_oynama_yüzdesi1}}  - %{{mac.topla_oynama_yüzdesi1}} </td> 
+	
+</tr> 
+
+<tr>
+	<td><b>İsabetli Şut</b></td>
+	<td>{{mac.kaleyi_bulan_şut1}}  - {{mac.kaleyi_bulan_şut2}} </td> 
+	
+</tr>
+
+<tr>
+	<td><b>İsabetsiz Şut</b></td>
+	<td>{{mac.kaleyi_bulmayan_şut1}}  - {{mac.kaleyi_bulmayan_şut2}} </td> 
+	
+</tr> 
+
+<tr>
+	<td><b>Kornerler</b></td>
+	<td>{{mac.kornerler1}}  - {{mac.kornerler2}} </td> 
+	
+</tr> 
+
+<tr>
+	<td><b>Ofsaytlar</b></td>
+	<td>{{mac.ofsaytlar1}}  - {{mac.ofsaytlar2}} </td> 
+	
+</tr> 
+
+<tr>
+	<td><b>Kaleci Kurtarışları</b></td>
+	<td>{{mac.kaleci_kurtarıslari1}}  - {{mac.kaleci_kurtarıslari2}} </td> 
+	
+</tr> 
+
+<tr>
+	<td><b>Taçlar</b></td>
+	<td>{{mac.taclar1}}  - {{mac.taclar2}} </td> 
+	
+</tr> 
+
+<tr>
+	<td><b>Fauller</b></td>
+	<td>{{mac.fauller1}}  - {{mac.fauller2}} </td> 
+	
+</tr> 
+
+
+
+
+
+
+
+	
+    </tbody>
+	 {% endfor %}
+  </table>
+
+
+		
+	
+

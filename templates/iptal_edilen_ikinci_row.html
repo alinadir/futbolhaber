@@ -1,0 +1,63 @@
+	<div class="col-md-4 col-sm-4"><!-- col-md-4 başlangıcı -->
+		
+
+  <!-- puan durumları başlangıcı -->
+  
+
+  <ul class="nav nav-tabs">
+    
+	<li class="active"><a data-toggle="tab" href="#home">Super Lig</a></li>
+    <li><a data-toggle="tab" href="#menu1">TFF 1.Lig</a></li>
+	<li role="presentation" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Ligler <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			 <li><a data-toggle="tab" href="#menu3">Premier Lig</a></li>
+			 <li><a data-toggle="tab" href="#menu3">La Liga</a></li>
+			 <li><a data-toggle="tab" href="#menu3">Bundesliga</a></li>
+			 <li><a data-toggle="tab" href="#menu3">Seria</a></li>
+		</ul>
+    </li>
+   
+	
+  </ul>
+  
+
+  <div class="tab-content"> <!-- tab content başlangıcı -->
+    <div id="home" class="tab-pane fade in active"> <!-- aktif ana tab home -->
+  
+<!-- Fikstür Başlangıcı -->
+	
+<!-- Fikstür Sonu-->
+
+<!-- Küçük Puan Durumu -->
+	{% include 'kucuk_super_lig_puan_durumu.html' %}
+<!-- Küçük Puan Durumu sonu-->
+	{% include 'super_lig_fikstür.html' %}
+
+
+
+</div><!-- row -->
+	   
+    
+    <div id="menu1" class="tab-pane fade">
+      <!-- Küçük Puan Durumu -->
+	{% include 'kucuk_premier_lig_puan_durumu.html' %}
+<!-- Küçük Puan Durumu sonu-->
+
+
+<!-- Fikstür Başlangıcı -->
+	{% include 'premier_lig_fikstür.html' %}
+<!-- Fikstür Sonu-->
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+	 </div> <!-- tab content sonu -->
+  </div> <!-- col-md-4 sonu -->

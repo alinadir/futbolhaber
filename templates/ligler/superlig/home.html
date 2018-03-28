@@ -1,78 +1,81 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block csss %} rel="stylesheet" href="{% static 'css/ligler/style.css' %}"  {% endblock %}
 {% block body%}
-
-
-
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-8 col-sm-8">
-			<div class="thumbnail">
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-						<li data-target="#myCarousel" data-slide-to="3"></li>
-						<li data-target="#myCarousel" data-slide-to="4"></li>
-						<li data-target="#myCarousel" data-slide-to="5"></li>
-					</ol>
-
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner">
-				
-				<div class="item active">
-				
-						<img src="{% static 'img/resim11.jpg'%}" class="img-responsive">
-						<div class="carousel-caption">
-						<h3>{{haber.title}}</h3>
-						<p>LA is always so much fun!</p>
-						</div>
-					</div>
-				{% for haber in haberler %}
-					<div class="item">
-						{% if haber.image %}
-							<a href="{{ haber.get_absolute_url }}">
-								<img src="{{ haber.image.url }}" class="img-responsive">
-							</a>
-						{% endif %}
-						<div class="carousel-caption">
-						<h3>{{haber.title}}</h3>
-						<p>LA is always so much fun!</p>
-						</div>
-					</div>
-					{% endfor %}
-					
-						
-				</div>
-
-				<!-- Left and right controls -->
-				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#myCarousel" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-			</div>
-			
-			
-			
-			{% include 'büyük_puan_durumu.html' %}
+{% include 'header.html'%}
+<body>
+<div class="container">	
+<!-- Küçük Puan Durumu -->
+<div class ="row">
+<div class="col-md-8">
+<!-- Tekli düğme -->
+<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#Puan">Puan Durumu</a></li>
+			<li><a data-toggle="tab" href="#fikstur">Fikstür</a></li>
+			<li><a data-toggle="tab" href="#FB">İstatistikler</a></li>
+			<li><a data-toggle="tab" href="#GS">GS</a></li>
+			<li><a data-toggle="tab" href="#TS">TS</a></li>
+			  
+		</ul>
+		
+<div class="tab-content">
+	<div id="Puan" class="tab-pane fade in active">
+	 {% include 'ligler/superlig/genel_sıra.html'%}
+	</div>
 	
+	
+<div id="fikstur" class="tab-pane fade">
+	{% include 'ligler/superlig/genel_fikstur.html'%}
+</div>
 
-	</div>
-		<div class="col-md-4 col-sm-4">
-		
-		
-		
-		</div>
-	</div>
-</div>		
+
+
+
+</div>
+  
+<h1>{{a.0}}</h1>
+<h4>{{sıra1}}</h4>
+<h4>{{sıra}}</h4>
+<h4>{{sıralama}}</h4>
+<h4>{{genel_sıra}}</h4>
+<h4>{{genel_sıra.0.0.0.durum.0}}</h4>
+<!-- Fikstür -->
+</div><!-- col -->
+
+<div class="col-md-4">
+
+
+</div>
+</div><!-- row -->
+</div><!-- container son -->
+
+</body>
+<h1></h1>
+
+<script>
+$(document).ready(function(){
+  
+  
+   $(".alar").click(function(){
+        $(".puan").hide();
+		$("." + $(this).attr("id")).show();
+		$(".hafta").text($(this).text());
+		 
+    });
+  
+   $(".maclarım").click(function(){
+        $(this).children('tr').toggle();
+		$(this).children('.goster').show();
+		 
+    });
+  
+  
+});
+
+
+
+</script>
+
 	{% endblock %}	
 
 

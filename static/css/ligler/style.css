@@ -1,0 +1,60 @@
+body {
+	background-color:black;
+	padding-top: 55px;
+	font-size:12px;
+
+}
+table {
+	background-color:mediumseagreen;
+	color:black;
+	margin-top:10px;
+}
+
+a{
+	color:white;
+}
+
+div.btn-group {
+	
+	margin-top:10px;
+	background-color:orange;
+
+	
+}
+button.btn {
+	margin-left:10px;
+}
+.g {
+	float:right;
+}
+.bir{
+	display:none;
+}
+
+.fikstur{
+	margin-bottom:15px;
+}
+.takım1 {
+   text-align: right;   
+}
+.orta {
+	text-align:center;
+}
+td {
+
+cursor:pointer;
+}
+a {
+	cursor:pointer;
+.mac {
+	text-align:center;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 1em;
+	font-size:8px;
+}
+.table-bordered {
+	font-size:8px;
+}

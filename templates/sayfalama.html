@@ -3,16 +3,16 @@
 	  	
 		
 <nav aria-label="Page navigation">
-{% if sosyaller1.has_other_pages%}
+{% if sosyaller.has_other_pages%}
   <ul class="pagination ">
-	{% if sosyaller1.has_previous %}
-	<li><a aria-label="Previous" href="?page={{ sosyaller1.previous_page_number }}{% if request.GET.q %}&q={{request.GET.q}} {% endif %}" >&laquo;</a>
+	{% if sosyaller.has_previous %}
+	<li><a aria-label="Previous" href="?page={{ sosyaller.previous_page_number }}{% if request.GET.q %}&q={{request.GET.q}} {% endif %}" >&laquo;</a>
 	</li>
 	{% else %}
 	<li class ="disabled"><span>&laquo;</span></li>
 	{% endif %}  
-    {% for pages in sosyaller1.paginator.page_range %}
-		{% if sosyaller1.number == pages %}
+    {% for pages in sosyaller.paginator.page_range %}
+		{% if sosyaller.number == pages %}
 			<li class="active"><span>{{pages}}<span class="sr-only">(current)</span></span></li>
 		
 		{% else %}
@@ -21,8 +21,8 @@
 		
 		
 	{% endfor %}
-		{% if sosyaller1.has_next %}
-			<li><a href="?page={{ sosyaller1.next_page_number }}{% if request.GET.q %}&q={{request.GET.q}}{% endif %}">&raquo;</a>
+		{% if sosyaller.has_next %}
+			<li><a href="?page={{ sosyaller.next_page_number }}{% if request.GET.q %}&q={{request.GET.q}}{% endif %}">&raquo;</a>
 			</li>
 		{% else %}
 			<li class="disabled"><span>&raquo;</span></li>

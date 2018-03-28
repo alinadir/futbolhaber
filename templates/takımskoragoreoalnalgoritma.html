@@ -1,0 +1,28 @@
+			if self.takım1_skor > self.takım2_skor:
+				self.puan1 = 3
+				self.galibiyet1 = 1
+				self.maglubiyet2 =1
+				self.takım1.puan += 3
+				self.takım1.galibiyet += 1
+				self.takım2.maglubiyet +=1
+			
+			if self.takım1_skor < self.takım2_skor:
+				self.puan2 = 3
+				self.galibiyet2 = 1
+				self.maglubiyet1 =1
+				self.takım2.puan += 3
+				self.takım2.galibiyet += 1
+				self.takım1.maglubiyet +=1
+				
+			if self.takım1_skor == self.takım2_skor:
+				self.puan1 = 1
+				self.puan2 = 1
+				self.beraberlik2 = 1
+				self.beraberlik1 = 1
+				self.takım2.puan += 1
+				self.takım1.puan += 1
+				self.takım2.beraberlik += 1
+				self.takım1.beraberlik += 1
+			
+			self.takım1.save()
+			self.takım2.save()
