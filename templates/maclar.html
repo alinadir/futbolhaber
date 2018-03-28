@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class="row logolar">
+  
+  <div class="mac col-md-12 col-xs-12">
+  <div class="bbb"> 
+  {% for takım in takımlar %}
+  
+
+   <div class="kkkk"><img src="{{ takım.image.url }}" class="img-responsive" alt="{{takım.isim}}"><span class="badge eee">{{takım.puan}}</span></div>
+  
+  {% endfor %}
+			
+  
+  </div>
+
+</div>
+</div>
+
+

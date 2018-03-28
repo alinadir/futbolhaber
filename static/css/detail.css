@@ -1,0 +1,40 @@
+body {
+	
+	padding-top: 70px;
+	font-family: 'Roboto';
+	background-image: url("cim1.jpg");
+	
+	color:white;
+	
+}
+
+
+
+.cc{
+	margin-top:8px;
+}
+
+.navbar-default{
+	background-image: url("cim1.jpg");
+}
+
+.nav.navbar-nav li a {
+    color:white;
+	font-weight:bold;
+	font-size:20px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+	font-weight:bold;
+	font-size:20px;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #5E5E5E;
+}
+
+
+
+

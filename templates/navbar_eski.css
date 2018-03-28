@@ -1,0 +1,27 @@
+.navbar-default{
+	background-image: url("cim1.jpg");
+}
+
+.nav.navbar-nav li a {
+    color:white;
+	font-weight:bold;
+	font-size:20px;
+	
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+	font-weight:bold;
+	font-size:20px;
+	
+}
+
+.nav.navbar-nav li a:hover,
+.nav.navbar-nav li a:focus {
+    color: orange;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: orange;
+}

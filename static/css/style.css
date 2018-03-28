@@ -1,0 +1,271 @@
+body {
+	
+	padding-top: 55px;
+	font-family: 'Roboto';
+	background-color:black;
+	color:white;
+	font-weight:bold;	
+}
+
+.well {
+	color:black;
+	border-radius:4px;
+	
+}
+.fiks {
+	margin-top:20px;
+	
+}
+h3 {
+	margin-top:5px;
+}
+
+.kenar {
+	cursor:pointer;
+}
+.gizli {
+	display:none;
+}
+.thumbnail img { 
+	
+	width:100%;
+ }
+ 
+ .ikinci-tabs, .bjk-tabs{
+	 margin-top:15px;
+	 margin-bottom:15px;
+ }
+ .media {
+	 border:ridge;
+	 border-radius: 5px;
+	 margin-top:15px;
+	 cursor:pointer;
+	 border-color:grey;
+	
+	 
+	
+	
+ }
+ 
+ .media:first-child {
+	 margin-top:15px;
+ }
+ 
+ .media-body {
+	 cursor:pointer;
+ }
+ 
+ h2 {
+	 padding-top:0;
+	 margin-top:0;
+	
+	 font:bold;
+ }
+
+ 
+/* navbar */
+.navbar-inverse {
+   
+	
+    border-bottom:ridge;
+	
+}
+/* Title */
+.navbar-default .navbar-brand {
+    color: white;
+	font-weight:bold;
+	font-size:22px;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: orange;
+}
+/* Link */
+.navbar-default .navbar-nav > li > a {
+    color: white;
+	font-weight:bold;
+	font-size:18px;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: orange;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+     
+}
+/* Caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: white;
+   
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* Mobile version */
+.navbar-default .navbar-toggle {
+    border-color: white;
+	
+
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+       background-color: white;
+	
+}
+.navbar-default .navbar-toggle .icon-bar {
+    
+}
+@media (max-width: 767px) {
+	
+	.navbar-default {
+    background-image: url("cim1.jpg");
+    background-repeat: repeat, no-repeat;
+	
+}
+	
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+         color:white;
+		
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+          color: orange;
+		 
+    }
+}
+
+a{
+	color:white;
+}
+ 
+ 
+ 
+ 
+.foter {
+      background-color: #222;
+      color: white;
+      padding: 15px;
+    }
+	
+h4{
+	font-weight:bold;
+}
+.abc{
+	display:none;
+}
+
+.asd{
+	
+}
+tr {
+	font-size:14px;
+}
+
+p {
+	font-weight:normal;
+}
+
+form {
+	color:orange;
+}
+
+
+.aaa{
+	display:none;
+}
+
+.list-group{
+	
+
+}
+
+.list-group-item{
+	background-color:white;
+	color:black;
+	border-radius:4px;
+}
+.img-responsive {
+	display:inline-block;
+	margin-left:4px;
+	padding:4px;
+	
+	
+	
+}
+.logolar{
+	margin-top:5px;
+
+}
+
+.kkkk{
+	position:relative;
+	display:inline-block;
+	margin-bottom:20px;
+	
+}
+
+.eee{
+	position:absolute;
+	bottom:-16px;
+	left:22px;
+}
+
+.bbb { 
+    overflow-x:scroll;
+    overflow-y:hidden;
+    white-space:nowrap;
+	max-width:100%;
+	border:ridge;
+	padding:17px;
+	padding-top:0;
+	padding-bottom:0;
+	margin-bottom:8px;
+
+}
+
+.bbb::-webkit-scrollbar{
+
+background-color:black;
+} 
+
+.bbb::-webkit-scrollbar-thumb{
+background-color:#B03C3F;
+border-radius:10px;
+}
+.bbb::-webkit-scrollbar-thumb:hover{
+background-color:#BF4649;
+border:1px solid #333333;
+}
+.bbb::-webkit-scrollbar-thumb:active{
+background-color:#A6393D;
+border:1px solid #333333;
+} 
+.mac{
+	border:solid;
+	border-color:black;
+	margin-bottom:5px;
+}
+
+.ayrinti {
+	display:none;
+	background-color:darkred;
+	color:white;
+	font-weight:normal;
+}

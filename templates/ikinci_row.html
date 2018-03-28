@@ -1,0 +1,21 @@
+
+
+					
+			
+		
+		
+	{% for resim in ikinci_row %}
+		<div class="col-md-4 col-sm-4">
+			<div class="thumbnail">
+				<img class="img-responsive" src="{{ resim.image.url }}" alt="">
+				<div class="caption">
+				<p>{{resim.title}}</p>
+				
+				
+				</div>
+			</div>
+			
+		</div>
+		{% endfor %}
+	
+	

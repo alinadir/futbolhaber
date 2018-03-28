@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}  {{haber.title}}   {% endblock %}
+{% block csss %}  rel="stylesheet" href="{% static 'css/detail.css' %}"   {% endblock %}
+{% block body%}
+
+
+{%include 'header.html' %}
+<div class="container-fluid"> <!-- container -->
+
+<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#genel"></a></li>
+			<li><a data-toggle="tab" href="#BJK">BJK</a></li>
+			<li><a data-toggle="tab" href="#FB">FB</a></li>
+			<li><a data-toggle="tab" href="#GS">GS</a></li>
+			<li><a data-toggle="tab" href="#TS">TS</a></li>
+		</ul>
+
+	<div class="row"> <!-- row -->
+		<div class="col-md-9  col-sm-9 aa"><!-- detay haber col-md-9  -->
+			<h1 class="cc">  {{haber.haberin_ozeti}}  </h1> <!-- haberin özeti -->
+			<img width="100%" src="{{ haber.image.url }}" /><!-- resim -->
+			<p> {{haber.content}}</p> <!-- içerik -->						
+			<p><b>{{haber.haberin_kaynagı}}</b></p> <!-- haberin kaynağı -->
+		</div> <!-- col-md-9 sonu -->			
+		
+		<div class="col-md-3  col-sm-3 bb"> <!-- yan haber col-md-3 -->
+			{% for haber1 in haberler %}
+				<div class="thumbnail cc"> <!-- thumbnail -->
+					<img src="{{ haber1.image.url }}" class="img-resposive"alt="Nature" style="width:100%"> <!-- resim -->
+					<div class="caption"> <!-- başlık -->
+					<p>{{haber.title}}</p>
+					</div> <!-- başlık sonu -->
+				</div> <!-- thumbnail sonu -->
+			{% endfor %}
+		</div> <!-- col-md-3 sonu -->
+	</div><!-- row sonu -->
+</div><!-- container sonu -->
+
+{% endblock %}

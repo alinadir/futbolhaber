@@ -1,0 +1,232 @@
+body {
+	
+	padding-top: 50px;
+	font-family: 'Roboto';
+	background-color:black;
+	color:white;
+	font-weight:bold;	
+}
+
+
+
+.thumbnail img { 
+	
+	width:100%;
+ }
+ 
+ .media {
+	 border:ridge;
+	 border-radius: 5px;
+	 margin-top:15px;
+	 cursor:pointer;
+	 border-color:grey;
+	
+	 
+	
+	
+ }
+ 
+ .media:first-child {
+	 margin-top:15px;
+ }
+ 
+ .media-body {
+	 cursor:pointer;
+ }
+ 
+ h2 {
+	 padding-top:0;
+	 margin-top:0;
+	
+	 font:bold;
+ }
+
+ 
+/* navbar */
+.navbar-default {
+    background-image: url("cim1.jpg");
+	background-repeat: repeat-x;
+	
+    border:none;
+	
+}
+/* Title */
+.navbar-default .navbar-brand {
+    color: white;
+	font-weight:bold;
+	font-size:22px;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: orange;
+}
+/* Link */
+.navbar-default .navbar-nav > li > a {
+    color: white;
+	font-weight:bold;
+	font-size:18px;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: orange;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+     
+}
+/* Caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: white;
+   
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* Mobile version */
+.navbar-default .navbar-toggle {
+    border-color: white;
+	
+
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+       background-color: white;
+	
+}
+.navbar-default .navbar-toggle .icon-bar {
+    
+}
+@media (max-width: 767px) {
+	
+	.navbar-default {
+    background-image: url("cim1.jpg");
+    background-repeat: repeat, no-repeat;
+	
+}
+	
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+         color:white;
+		
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+          color: orange;
+		 
+    }
+}
+
+a{
+	color:white;
+}
+ 
+ 
+ .carousel-indicators {
+	 bottom:0;
+	 left:0;
+	 width:100%;
+	 margin-left:0;
+ }
+ 
+ .carousel-caption {
+	 left:0;
+	 right:0;
+	 width:100%;
+ }
+ 
+foter {
+      background-color: #222;
+      color: white;
+      padding: 15px;
+    }
+	
+h4{
+	font-weight:bold;
+}
+.abc{
+	display:none;
+}
+
+.asd{
+	
+}
+tr {
+	font-size:14px;
+}
+
+p {
+	font-weight:normal;
+}
+
+form {
+	color:orange;
+}
+
+.list-group-item{
+	background-color:black;
+	font-weight:normal;
+	font-size:12px;
+}
+.aaa{
+	display:none;
+}
+
+.list-group{
+	
+
+}
+
+.list-group-item{
+	background-color:white;
+	color:black;
+	border-radius:4px;
+}
+.img-responsive {
+	display:inline-block;
+	margin-left:4px;
+	padding:4px;
+	
+	
+}
+.logolar{
+	margin-top:5px;
+}
+
+.kkkk{
+	position:relative;
+	display:inline-block;
+	
+}
+
+.eee{
+	position:absolute;
+	bottom:-16px;
+	left:18px;
+}
+
+.bbb { 
+    overflow-x:scroll;
+    overflow-y:hidden;
+    white-space:nowrap;
+	max-width:100%;
+	border:ridge;
+	padding:17px;
+	padding-top:0;
+	margin-bottom:8px;
+
+}

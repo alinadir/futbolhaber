@@ -1,0 +1,231 @@
+{% load static %}
+
+
+<!-- ilk row -->
+{% include 'maclar.html' %}
+
+	<div class="row">
+	<!-- col-md-8 -->
+		<div class="col-md-12 col-sm-12">
+		
+		<!-- Slider main container -->
+
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#genel">FZ</a></li>
+			<li><a data-toggle="tab" href="#BJK">BJK</a></li>
+			<li><a data-toggle="tab" href="#FB">FB</a></li>
+			<li><a data-toggle="tab" href="#GS">GS</a></li>
+			<li><a data-toggle="tab" href="#TS">TS</a></li>
+			  
+		</ul>
+		
+
+  <div class="tab-content">
+    <div id="genel" class="tab-pane fade in active"><!-- Ana sayfadaki Haberler -->
+		<div class="row">
+		<div class=" col-xs-12 col-md-7 col-sm-7"> <!--Genel Haberler -->
+		{% for sosyal in sosyaller %}
+			<div class="media">
+				<div class="media-left media-top">
+					<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+				</div>
+				
+				<div class="media-body">
+					<!--<h4>{{sosyal.isim}}</h4> -->
+					<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+				</div>
+				
+				<div class="abc"> <p> {{sosyal.content2 }}<p>
+					<p><b><small>{{sosyal.publishing_date|timesince}} önce</b></small></p>
+				</div>
+				
+			</div>
+
+			{% include 'buttons.html' %}
+			{% include 'yorum.html' %}	
+		{% endfor %}
+			
+		</div> <!-- Genel Haberler -->
+	
+		<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
+			{% include 'yazılar.html' %}
+			
+			
+		</div><!-- Fikstür vesaire -->
+		</div> 
+	 {% include 'sayfalama.html' %}
+    </div> <!-- Ana sayfadaki Haberlerin sonu -->
+	
+    <div id="BJK" class="tab-pane fade"> <!-- BJK bölümü -->
+		<div class="row">
+			<div class="col-md-7 col-sm-7"> 
+			{% for sosyal in bjk %}
+				<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+					</div>
+					<div class="media-body">
+						<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+					
+					</div>
+					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+				</div>
+				{% include 'buttons.html' %}
+				{% include 'yorum.html' %}
+			{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
+				{% include 'yazı_bjk.html' %}
+			</div><!-- Fikstür vesaire -->
+		</div>
+    </div> <!-- BJK bölümü sonu -->
+	
+    <div id="FB" class="tab-pane fade">
+        <div class="row">
+			<div class="col-md-7 col-sm-7"> 
+			{% for sosyal in fb %}
+				<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+					</div>
+					<div class="media-body">
+						<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+					
+					</div>
+					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+				</div>
+				{% include 'buttons.html' %}
+				{% include 'yorum.html' %}
+			{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
+				{% include 'yazı_fb.html' %}
+			</div><!-- Fikstür vesaire -->
+		</div>
+    </div>
+	
+    <div id="GS" class="tab-pane fade">
+    <div class="row">
+			<div class="col-md-7 col-sm-7"> 
+			{% for sosyal in ts %}
+				<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+					</div>
+					<div class="media-body">
+						<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+					
+					</div>
+					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+				</div>
+				{% include 'buttons.html' %}
+				{% include 'yorum.html' %}
+			{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
+				{% include 'yazı_gs.html' %}
+			</div><!-- Fikstür vesaire -->
+		</div>
+    </div>
+	
+	<div id="TS" class="tab-pane fade">
+    <div class="row">
+			<div class="col-md-7 col-sm-7"> 
+			{% for sosyal in ts %}
+				<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+					</div>
+					<div class="media-body">
+						<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+					
+					</div>
+					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+				</div>
+				{% include 'buttons.html' %}
+				{% include 'yorum.html' %}
+			{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
+				{% include 'yazı_ts.html' %}
+			</div><!-- Fikstür vesaire -->
+		</div>
+    </div>
+	
+  </div>
+
+		
+		
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			 
+			
+		
+		
+		<div class="row">
+		
+			{% include 'ikinci_row.html' %}  <!-- 12 ile 21 arası haberler burda -->
+			
+		</div>
+			
+		</div> <!-- col md-8 sonu -->
+		
+		
+		<div class="col-md-6">
+		<div class="row">
+	
+		</div>
+		</div>
+	
+		</div><!-- ilk row sonu -->
+		
+			
+			
+			
+		
+	
+	
+<script>
+$(document).ready(function(){
+    $(".media").click(function(){
+        $(this).children('.abc').toggle();
+		 
+    });
+	
+	
+	 $(".yorumlar").click(function(){
+        $(this).next().toggle();
+    });
+	
+	$(".kenar").click(function(){
+        $(this).children('.truncate').toggle();
+		$(this).children('.gizli').toggle();
+		 
+    });
+	
+	$(".mac").click(function(){
+        $(this).children('.ayrinti').toggle();
+		
+		 
+    });
+	
+    
+});
+
+</script>
+
+
+
+	

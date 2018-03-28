@@ -1,0 +1,34 @@
+ <table class="table table-hover">
+	<caption><h2>Super Lig Puan Durumu</h2></caption>
+    <thead>
+      <tr>
+        <th>Takımlar</th>
+        <th>O</th>
+		<th>G</th>
+		<th>B</th>
+		<th>Y</th>
+		<th>A</th>
+		<th>Y</th>
+		<th>AVG</th>
+		<th>P</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for takim in Puan_Durumu1 %}
+	  <tr >
+        
+		
+		<td>{{takim.takım}}</td>
+        <td>{{takim.o}}</td>
+		<td>{{takim.g}}</td>
+		<td>{{takim.b}}</td>
+		<td>{{takim.m}}</td>
+		<td>{{takim.a}}</td>
+		<td>{{takim.y}}</td>
+		<td>{{takim.avg}}</td>
+		<td>{{takim.p}}</td>
+		</tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>

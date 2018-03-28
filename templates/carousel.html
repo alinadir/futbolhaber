@@ -1,0 +1,64 @@
+<!-- carousel thumbnail -->
+				<div class="thumbnail">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+					<li data-target="#myCarousel" data-slide-to="4"></li>
+					<li data-target="#myCarousel" data-slide-to="5"></li>
+					<li data-target="#myCarousel" data-slide-to="6"></li>
+					<li data-target="#myCarousel" data-slide-to="7"></li>
+					<li data-target="#myCarousel" data-slide-to="8"></li>
+					<li data-target="#myCarousel" data-slide-to="9"></li>
+					<li data-target="#myCarousel" data-slide-to="10"></li>
+					<li data-target="#myCarousel" data-slide-to="11"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				
+				<div class="carousel-inner">
+				
+				{% for ilk_haber in haber1 %}
+					<div class="item active">
+						{% if ilk_haber.image %}
+							<a href="{{ ilk_haber.get_absolute_url }}">
+								<img src="{{ ilk_haber.image.url }}" class="img-responsive">
+							</a>
+						{% endif %}
+						<div class="carousel-caption">
+						<h3>{{ilk_haber.title}}</h3>
+						
+						</div>
+					</div>
+					{% endfor %}
+				{% for haber in haberler %}
+					<div class="item">
+						{% if haber.image %}
+							<a href="{{ haber.get_absolute_url }}">
+								<img src="{{ haber.image.url }}" class="img-responsive">
+							</a>
+						{% endif %}
+						<div class="carousel-caption">
+						<h3>{{haber.title}}</h3>
+						
+						</div>
+					</div>
+					{% endfor %}
+					
+						
+				</div>
+
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div> <!-- carousel sonu -->
+			</div> <!-- carousel thumbnail sonu -->

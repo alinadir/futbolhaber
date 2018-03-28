@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body%}
+
+
+
+
+
+
+<div class="container">
+
+<div class = "row">
+
+<div class="col-md-4 col-sm-4 ">
+
+<div class="image">
+
+      <img src="{%static 'img/resim1.jpg'%}" class="img-responsive"/>
+      
+      <h2><span>A Movie in the Park:<span class='spacer'></span><br /><span class='spacer'></span>Kung Fu Panda</span></h2>
+
+</div>
+
+
+
+</div>
+
+<div class="col-md-4 col-sm-4 ">
+
+<div class="image">
+
+      <img src="{%static 'img/resim1.jpg'%}" class="img-responsive"/>
+      
+      <h2><span>A Movie in the Park:<span class='spacer'></span><br /><span class='spacer'></span>Kung Fu Panda</span></h2>
+
+</div>
+
+
+
+</div>
+
+<div class="col-md-4 col-sm-4 ">
+
+<div class="image">
+
+      <img src="{%static 'img/resim1.jpg'%}" class="img-responsive" />
+      
+      <h2><span>A Movie in the Park:<span class='spacer'></span><br /><span class='spacer'></span>Kung Fu Panda</span></h2>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="container">
+<div class="row">
+{% for haber in haberler %}
+
+		
+		<div class="col-md-3 col-sm-6 col-xs-12">
+			<a href="{{ haber.get_absolute_url }}"><div class="thumbnail">
+				
+				{% if haber.image %}
+						<img src="{{ haber.image.url }}" class="img-responsive">
+						{% endif %}
+				
+				<div class="caption">
+						
+					
+					<p> {{haber.content|linebreaks|truncatechars:150}}  </p>
+					
+						
+					</p>
+				</div>
+			</div></a>
+			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+{% endfor %}
+</div>
+
+
+
+
+</div>
+
+<div class="container">
+ 
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+       
+	 
+	   
+	   
+          <img src="{%static 'img/resim1.jpg'%}" alt="Lights" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        
+          <img src="{%static 'img/resim1.jpg'%}" alt="Nature" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+        
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+       
+          <img src="{%static 'img/resim1.jpg'%}" alt="Fjords" style="width:100%">
+          <div class="caption">
+            <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+          </div>
+       
+      </div>
+    </div>
+  </div>
+
+ 
+  </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
+<script>
+		$(document).ready(function(){
+			
+		 $("h2")
+			.wrapInner("<span>")
+
+		$("h2 br")
+			.before("<span class='spacer'>")
+			.after("<span class='spacer'>");
+		
+			});
+</script>

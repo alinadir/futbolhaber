@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, inital-scale=1">
+	<title> {% block title %}  Spor Haberleri  {% endblock %}</title>
+	
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+	
+	<link {% block csss %} rel="stylesheet" href="{% static 'css/style.css' %}" {% endblock %}>
+	
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	
+	<script src="{% static 'js/jquery.min.js'%}"></script>
+	<script src="{% static 'js/bootstrap.min.js'%}"></script>
+	
+	
+	
+	</head>
+
+<body>
+
+	
+
+
+
+	
+{% block body %}	
+
+{% endblock%}
+
+<footer class=" foter container-fluid text-center">
+  <p>TÜM HAKLARI SAKLIDIR. ©2018 FUTBOLZADE</p>
+</footer>
+	
+	
+</body>
+</html>

@@ -1,0 +1,34 @@
+ <div class="row">
+	  <div class="col-xs-12 col-md-12 col-sm-12 text-center">
+	  	
+		
+<nav aria-label="Page navigation">
+{% if sosyaller1.has_other_pages%}
+  <ul class="pagination ">
+	{% if sosyaller1.has_previous %}
+	<li><a aria-label="Previous" href="?page={{ sosyaller1.previous_page_number }}{% if request.GET.q %}&q={{request.GET.q}} {% endif %}" >&laquo;</a>
+	</li>
+	{% else %}
+	<li class ="disabled"><span>&laquo;</span></li>
+	{% endif %}  
+    {% for pages in sosyaller1.paginator.page_range %}
+		{% if sosyaller1.number == pages %}
+			<li class="active"><span>{{pages}}<span class="sr-only">(current)</span></span></li>
+		
+		{% else %}
+			<li><a href="?page={{pages}}{% if request.GET.q %}&q={{request.GET.q}}{% endif%}">{{pages}}</a></li>
+		{% endif %}
+		
+		
+	{% endfor %}
+		{% if sosyaller1.has_next %}
+			<li><a href="?page={{ sosyaller1.next_page_number }}{% if request.GET.q %}&q={{request.GET.q}}{% endif %}">&raquo;</a>
+			</li>
+		{% else %}
+			<li class="disabled"><span>&raquo;</span></li>
+		{% endif %}
+  </ul>
+ {% endif %}
+</nav>
+</div>
+	  </div>
