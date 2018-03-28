@@ -7,14 +7,14 @@ from operator import add
 
 
 # Create your views here.
-def ligler_view(request,a):#ana sayfamızın
+def ligler_view(request):#ana sayfamızın
 	oyuncular1 = Oyuncu.objects.order_by("toplam_gol_sayısı")
 	oyuncular2 = Oyuncu.objects.order_by("toplam_asist_sayısı")
 	print(oyuncular1)
 	print(oyuncular2)
 	takımlar =Takım.objects.all()
-	fikstur1 = Fikstur.objects.filter(hafta="1",macın_türü__isim= a,mac_saati__range=["2018-03-01", "2018-03-26"])
-	fikstur2= Fikstur.objects.filter(hafta="2",macın_türü__isim=a,mac_saati__range=["2018-03-01", "2018-03-26"])
+	fikstur1 = Fikstur.objects.filter(hafta="1",mac_saati__range=["2018-03-01", "2018-03-26"])
+	fikstur2= Fikstur.objects.filter(hafta="2",mac_saati__range=["2018-03-01", "2018-03-26"])
 	haftalar=['1',"2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34"]
 	durumlar =[]
 	
