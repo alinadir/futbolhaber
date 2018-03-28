@@ -1,7 +1,6 @@
 from django.shortcuts import render,HttpResponse,get_object_or_404,HttpResponseRedirect,redirect
 from .models import Haberler,SosyalMedia,Comment,Club,Hafta,Fikstur,TV,Yazi
 from django.utils.text import slugify
-from ligler.models import  Fiks,Puan,Takım,PremierFiks,PremierPuan,PremierHafta,PremierTakım
 from .forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q

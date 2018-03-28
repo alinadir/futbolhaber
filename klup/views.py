@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from home.models import Haberler
-from ligler.models import  Fiks,Puan,Hafta,Takım
+
 
 # Create your views here.
 
