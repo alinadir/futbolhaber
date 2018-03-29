@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body%}
+{%include 'header.html' %}
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#genel">{{sosyal.isim}}</a></li>
+		<li><a data-toggle="tab" href="#BJK">Bilgi</a></li>
+		<li><a data-toggle="tab" href="#FB">FB</a></li>
+		<li><a data-toggle="tab" href="#GS">GS</a></li>
+		<li><a data-toggle="tab" href="#TS">TS</a></li>
+	</ul>
+		
+				  <div class="row">
+			
+			
+			<div class=" col-xs-12 col-md-6 col-sm-6"> <!-- Kim Ne Demiş Köşesi başı -->
+					
+					
+					<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+					</div>
+					<div class="media-body">
+					<h4 class="media-heading">{{sosyal.isim}}</h4>
+					<p class="ert">{{sosyal.content1 |truncatechars:50}}</p>
+					
+				</div>
+				<div class="abc"> <p> {{sosyal.content2 }}<p>   </div>
+			
+				</div>
+				{% include 'home/comment.html' %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			
+			
+			
+			<div class=" col-xs-12 col-md-6 col-sm-6"> <!-- Kim Ne Demiş Köşesi başı -->
+					{% for sosyal in sosyaller %}
+					
+					<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+					</div>
+					<div class="media-body">
+					<h4 class="media-heading">{{sosyal.isim}}</h4>
+					<p class="ert">{{sosyal.content1 |truncatechars:50}}</p>
+					
+				</div>
+				<div class="abc"> <p> {{sosyal.content2 }}<p>   </div>
+				
+				</div>
+				<a href="{{ sosyal.get_absolute_url }}"type="button" class="btn btn-info btn-xs">Yorum Ekle</a>	
+				{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			
+		</div>
+		
+		
+</div>
+	
+<script>
+$(document).ready(function(){
+    $(".media").click(function(){
+        $(this).children('.abc').toggle();
+    });
+    
+});
+
+</script>
+
+{% endblock %}

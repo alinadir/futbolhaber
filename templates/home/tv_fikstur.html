@@ -1,0 +1,88 @@
+<table  class="table table-bordered ">
+{% for mac in fikstur %}
+    <tbody class="maclarım">
+		<tr class="goster success">
+			<td class="col-md-3">{{mac.mac_saati}}</td>
+			<td class="col-md-9">{{mac.takım1.isim}} {%if mac.macın_durumu == "baslamadı" %} -  {% else %}{{mac.takım1_skor}} - {{mac.takım2_skor}} {% endif %} {{mac.takım2.isim}}</td>
+      </tr>
+		<tr class="ayir">
+			<td><b>Hakemler</td>
+			<td></b>  {{ mac.hakem }} {{ mac.yardımcı_hakemler }}  </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Ev sahibi 11</td>
+			<td></b>  {{ mac.ilkonbir1 }} </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Konuk Takım 11</td>
+			<td></b>  {{ mac.ilkonbir2 }} </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Goller</b></td>
+			<td></b>  {{ mac.goller1 }} - {{ mac.goller2 }}</td>	
+		</tr>
+		<tr class="ayir">
+			<td>   <b>Sarı Kartlar</b></td>  
+			<td> {{ mac.sarıkartlar1 }} - {{ mac.sarıkartlar2 }} </td>
+		</tr>
+		<tr class="ayir">
+			<td>  <b>Kırmızı Kartlar</b> </td> 
+			<td> {{ mac.kırmızıkartlar1 }} - {{ mac.kırmızıkartlar2 }} </td>
+		</tr>
+		<tr class="ayir">
+			<td><b>Oyuna Girenler</b></td>
+			<td>{{ mac.giren_oyuncular1 }} - {{ mac.giren_oyuncular2 }}</td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Oyundan Çıkanlar</b></td>
+			<td>{{ mac.cıkan_oyuncular1 }} - {{ mac.cıkan_oyuncular1}}</td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Topla Oynama</b></td>
+			<td>%{{mac.topla_oynama_yüzdesi1}}  - %{{mac.topla_oynama_yüzdesi1}} </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>İsabetli Şut</b></td>
+			<td>{{mac.kaleyi_bulan_şut1}}  - {{mac.kaleyi_bulan_şut2}} </td> 
+		</tr>
+		<tr class="ayir">
+			<td><b>İsabetsiz Şut</b></td>
+			<td>{{mac.kaleyi_bulmayan_şut1}}  - {{mac.kaleyi_bulmayan_şut2}} </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Kornerler</b></td>
+			<td>{{mac.kornerler1}}  - {{mac.kornerler2}} </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Ofsaytlar</b></td>
+			<td>{{mac.ofsaytlar1}}  - {{mac.ofsaytlar2}} </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Kaleci Kurtarışları</b></td>
+			<td>{{mac.kaleci_kurtarıslari1}}  - {{mac.kaleci_kurtarıslari2}} </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Taçlar</b></td>
+			<td>{{mac.taclar1}}  - {{mac.taclar2}} </td> 
+		</tr> 
+		<tr class="ayir">
+			<td><b>Fauller</b></td>
+			<td>{{mac.fauller1}}  - {{mac.fauller2}} </td> 
+		</tr> 
+	</tbody>
+{% endfor %}
+</table>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+		

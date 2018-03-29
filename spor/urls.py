@@ -23,7 +23,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 	url(r'^', include('home.urls')),
-	url(r'^', include('klup.urls')),
 	url(r'^', include('ligler.urls')),
 
 	#dolar işareti link daha devam edeceği için ilgili uygulamanın urls.i içerisinde yer almıştır.

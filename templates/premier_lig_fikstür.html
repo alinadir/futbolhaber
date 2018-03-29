@@ -1,6 +1,0 @@
-<ul class="list-group">
-{% for mac in fikstur %}
-  <li class="list-group-item"><small>{{ mac.macın_tarihi1 }} {{ mac.lig }}  </small> <br>{{mac.takım1}} {%if mac.takım1_skor%} {{ mac.takım1_skor }}{%endif%} - {%if mac.takım2_skor%}{{ mac.takım2_skor }}{%endif%} {{mac.takım2}} </li>
-  <li class="list-group-item"><small>{{ mac.macın_tarihi2 }} {{ mac.lig }}  </small> <br>{{mac.takım3}} {%if mac.takım3_skor%}{{ mac.takım3_skor }}{%endif%} - {%if mac.takım4_skor%}{{ mac.takım4_skor }}{%endif%} {{mac.takım4}} </li>
-{% endfor %}
-</ul>

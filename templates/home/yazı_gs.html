@@ -1,0 +1,19 @@
+<ul class="nav nav-tabs bjk-tabs">
+	<li class="active"><a data-toggle="tab" href="#yazıbjk">FZ</a></li>
+	<li ><a data-toggle="tab" href="#bjkfiks">Fikstür</a></li>
+</ul>
+<div class="tab-content">
+{% for yazi in yazıgs %}
+	<div id="yazıbjk" class="tab-pane fade in active well well-sm">
+		 <div class="kenar">
+			<h3>{{yazi.yazının_baslıgı}}</h3>
+			<p class="text-justify truncate">{{yazi.ana_content|truncatechars:200}}</p>
+			<p class="text-justify gizli">{{yazi.ana_content}}</p>
+			<p class="text-center"><b>---{{yazi.yazar.isim}}---</b></p>
+	</div>	
+	</div>
+	<div id="bjkfiks" class="tab-pane fade">
+	 {% include 'home/gs_fikstur.html' %}	
+	</div>
+	{% endfor %}
+</div>

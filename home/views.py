@@ -79,7 +79,7 @@ def sosyal_detail(request,slug):#ana sayfamızın
 		'form':form,
 	}
 	
-	return render(request,"sdetail.html",context)#home.html in dire
+	return render(request,"home/sdetail.html",context)#home.html in dire
 	
 
 	
