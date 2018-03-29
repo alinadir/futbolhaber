@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SosyalMedia,Comment,Karakterler,Club,Fikstur,Hafta,TV,Yazi,Yazarlar
+from .models import SosyalMedia,Yorum,Karakterler,TV,Yazi,Yazarlar,Konu
 from django.utils.text import slugify
 
 # Register your models here.
@@ -16,14 +16,9 @@ class SosyalAdmin(admin.ModelAdmin):
 
 
 admin.site.register(SosyalMedia,SosyalAdmin)
-
-admin.site.register(Comment)
-
-admin.site.register(Club)
-admin.site.register(Fikstur)
-admin.site.register(Hafta)
-
+admin.site.register(Yorum)
 admin.site.register(Karakterler)
 admin.site.register(TV)
 admin.site.register(Yazi)
 admin.site.register(Yazarlar)
+admin.site.register(Konu)

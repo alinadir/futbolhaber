@@ -1,11 +1,11 @@
 from django import forms
-from .models import Comment
+from .models import Yorum
 #from captcha.fields import ReCaptchaField
 
 class CommentForm(forms.ModelForm):
 	#captcha = ReCaptchaField()
 	class Meta:
-		model = Comment
+		model = Yorum
 		fields = [
 			'name',
 			'content',

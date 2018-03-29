@@ -7,6 +7,17 @@ body {
 	font-weight:bold;	
 }
 
+table {
+	background-color:mediumseagreen;
+	color:black;
+	margin-top:10px;
+}
+
+.ayir{
+	display:none;
+}
+
+
 .well {
 	color:black;
 	border-radius:4px;
