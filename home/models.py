@@ -3,57 +3,22 @@ from django.urls import reverse
 from django.utils.text import slugify
 # Create your models here.
 
-class Haberler(models.Model):
-	title = models.CharField(max_length=120,verbose_name="Başlık")
-	content = models.TextField(verbose_name="içerik")
-	publishing_date = models.DateTimeField(verbose_name="yayımlanma_tarihi",auto_now_add=True)
-	image = models.ImageField(null=True, blank=True)#kullanabilmek için Pillow yüklemek gerekiyor.
-	#slug = models.SlugField(unique=True, editable=False,max_length=130 )
-	slug = models.SlugField(unique=True, editable=False,max_length=130 )
-	haberin_konusu = models.CharField(max_length=20,verbose_name="Haberin Konusu")
-	haberin_kaynagı = models.CharField(max_length=30,verbose_name="Haberin Kaynağı")
-	haberin_ozeti = models.CharField(max_length=120,verbose_name="Haberin Özeti ")
-	
-	
-	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
-		return self.title
-		
-	def get_absolute_url(self):
-		return reverse('homee:detail',kwargs={'slug':self.slug})
-		# detail url içerisinde name.e verdiğimiz isim. id ise url.de tanımlanan argüman.
-		#burdaki home url dosyası içerisinde belirlediğimiz app_name.dir.
-		
-	class Meta:
-		ordering = ['-publishing_date']
-	
-	def get_unique_slug(self):
-		slug = slugify(self.title.replace('ı','i'))
-		unique_slug = slug
-		counter = 1
-		
-		while Haberler.objects.filter(slug = unique_slug).exists():
-			unique_slug = '{}-{}'.format(slug,counter)
-			counter  += 1
-		return unique_slug
-	
-	def save(self,*args,**kwargs):
-		#if not self.slug:
-		self.slug = self.get_unique_slug()
-		return super(Haberler,self).save(*args,*kwargs)
-		
 class Karakterler(models.Model):
 	isim = models.CharField(max_length=40,verbose_name="İsim Soyisim")
 	image = models.ImageField()
+	ozgecmis = models.CharField(max_length=500,verbose_name="özgeçmiş",null=True,blank = True)
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
 		return self.isim
+		
+class Konu(models.Model):
+	isim = models.CharField(max_length=40,verbose_name="Örnek:Beşiktaş,Genel,Dünya,Anadolu")
 	
 		
 class SosyalMedia(models.Model):
-	isim = models.ForeignKey(Karakterler, related_name="karakter",on_delete=models.CASCADE)
+	isim = models.ForeignKey(Karakterler, related_name="karakter",on_delete=models.CASCADE,related_name="Karakterler")
 	content1 = models.CharField(max_length=300,verbose_name="media içeriği")
-	content2 = models.TextField(verbose_name="içerik")
-	konu = models.CharField(max_length=40,verbose_name="konu")
+	konu = models.ForeignKey(Konu, related_name="karakter",on_delete=models.CASCADE,related_name="Konu")
 	#image = models.ImageField(null=True, blank=True)
 	slug = models.SlugField(unique=True, editable=False,max_length=130)
 	publishing_date = models.DateTimeField(verbose_name="yayımlanma_tarihi",auto_now_add=True)
@@ -70,7 +35,7 @@ class SosyalMedia(models.Model):
 		ordering = ['-publishing_date']
 	
 	def get_unique_slug(self):
-		slug = slugify(self.isim.isim.replace('ı','i'))
+		slug = slugify(self.content1.replace('ı','i'))
 		unique_slug = slug
 		counter = 1
 		
@@ -110,7 +75,6 @@ class Comment(models.Model):
 
 		
 class Club(models.Model):
-	sözluk = {}
 	isim = models.CharField(max_length=200)
 	image = models.ImageField(blank=True)
 	
@@ -125,20 +89,6 @@ class Club(models.Model):
 	
 	class Meta:
 		ordering = ['-puan','-averaj']
-	
-	#def hafta_puan_hesapla(self,hafta):
-	
-		#if hafta=='birinci':
-		#	bir = {'puan':self.puan}
-		#	sözlük = {}
-		#	sözlük[hafta]=bir
-		#	print(sözlük)
-		#else:
-		#	sözlük[hafta]=self.puan
-		#	print(sözlük)
-		#print(self.sözlük)
-		#return self.sözlük
-	
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
 		return self.isim

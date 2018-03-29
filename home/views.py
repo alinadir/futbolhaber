@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,get_object_or_404,HttpResponseRedirect,redirect
-from .models import Haberler,SosyalMedia,Comment,Club,Hafta,Fikstur,TV,Yazi
+from .models import SosyalMedia,Comment,Club,Hafta,Fikstur,TV,Yazi
 from django.utils.text import slugify
 from .forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -9,7 +9,6 @@ from django.db.models import Q
 
 # Create your views here.
 def home_view(request):#ana sayfamızın
-	#haberler=Haberler.objects.all()
 	takımlar=Club.objects.all()
 	yazılar=Yazi.objects.all()
 	yazıbjk = yazılar.filter(ilgi="Beşiktaş")
@@ -119,17 +118,7 @@ def home_view(request):#ana sayfamızın
 	}	
 	return render(request,"home1.html",context)#home.html in dire
 	
-def home_detail(request,slug):#ana sayfamızın
-	haber=get_object_or_404(Haberler, slug =slug)
-	
-	
-	haberler=Haberler.objects.all()[:5]
-	context = {
-		'haber':haber,
-		'haberler':haberler,
-	}
-	
-	return render(request,"detail.html",context)#home.html in dire	
+
 	
 def sosyal_detail(request,slug):#ana sayfamızın
 	sosyal=get_object_or_404(SosyalMedia, slug =slug)

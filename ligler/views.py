@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Ülke,Oyuncu,Takım,Fikstur,Hafta,Sezon,Yardımcılar,Hoca,Yoneticiler,Stadyum,İdman,LigKupa
-from home.models import Haberler
 from django.db.models import Q
 from operator import add
 
@@ -90,7 +89,7 @@ def hafta_hafta_takimlar(a):
 		
 		
 		
-		#baba.append(bir)
+		#baba.append(bir))
 		#baba.append(iki)
 		#print(a)
 		# newlist = sorted(a, key=lambda k: (k['durum'][0],k['durum'][1]))

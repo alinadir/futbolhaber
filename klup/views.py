@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from home.models import Haberler
+from home.models import SosyalMedia
 
 
 # Create your views here.
 
 def besiktas(request):#ana sayfamızın
-	haberler = Haberler.objects.filter(haberin_konusu="Beşiktaş")[:5]
+	haberler = SosyalMedia.objects.filter(haberin_konusu="Beşiktaş")[:5]
 	
 	context= {
 	'haberler':haberler,
@@ -15,13 +15,13 @@ def besiktas(request):#ana sayfamızın
 	return render(request,"club/besiktas/besiktas.html",context)
 	
 def fenerbahce(request):#ana sayfamızın
-	haberler = Haberler.objects.filter(haberin_konusu="Fenerbahçe")[:5]
+	haberler = SosyalMedia.objects.filter(haberin_konusu="Fenerbahçe")[:5]
 	return render(request,"club/fenerbahce/fenerbahce.html",{'haberler':haberler})
 	
 def galatasaray(request):#ana sayfamızın
-	haberler = Haberler.objects.filter(haberin_konusu="Galatasaray")[:5]
+	haberler = SosyalMedia.objects.filter(haberin_konusu="Galatasaray")[:5]
 	return render(request,"club/galatasaray/galatasaray.html",{'haberler':haberler})
 
 def trabzonspor(request):#ana sayfamızın
-	haberler = Haberler.objects.filter(haberin_konusu="Trabzonspor")[:5]
+	haberler = SosyalMedia.objects.filter(haberin_konusu="Trabzonspor")[:5]
 	return render(request,"club/trabzonspor/trabzonspor.html",{'haberler':haberler})
