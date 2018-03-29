@@ -1,6 +1,10 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block body%}
 
 
+<div class="container">
+{%include 'header.html' %}
 <!-- ilk row -->
 {% include 'maclar.html' %}
 
@@ -153,46 +157,9 @@
     </div>
 	
   </div>
-
-		
-		
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			 
-			
-		
-		
-		<div class="row">
-		
-			{% include 'ikinci_row.html' %}  <!-- 12 ile 21 arası haberler burda -->
-			
-		</div>
-			
 		</div> <!-- col md-8 sonu -->
-		
-		
-		<div class="col-md-6">
-		<div class="row">
-	
-		</div>
-		</div>
-	
-		</div><!-- ilk row sonu -->
-		
-			
-			
+	</div><!-- ilk row sonu -->		
+</div>			
 			
 		
 	
@@ -235,3 +202,32 @@ $(document).ready(function(){
 
 
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -19,7 +19,7 @@ def home_view(request):#ana sayfamızın
 	yazıts = yazılar.filter(konu__isim="Trabzonspor")
 	tv=TV.objects.all()
 	
-	#bjkfikstur=fikstur.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş"))
+	bjkfikstur=Fikstur.objects.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş"))[0:1]
 	
 	sosyaller = SosyalMedia.objects.all()
 	bjk = SosyalMedia.objects.filter(konu__isim__icontains="Beşiktaş")
@@ -53,8 +53,9 @@ def home_view(request):#ana sayfamızın
 		'yazıfb':yazıfb,
 		'yazıts':yazıts,
 		'fikstur':fikstur,
+		'bjkfikstur':bjkfikstur,
 	}	
-	return render(request,"home1.html",context)#home.html in dire
+	return render(request,"home/home.html",context)#home.html in dire
 	
 
 	
