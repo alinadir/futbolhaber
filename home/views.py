@@ -58,7 +58,7 @@ def home_view(request):#ana sayfamızın
 		Q(isim__isim__icontains=query)|
 		Q(content1__icontains=query)|
 		Q(content2__icontains=query)|
-		Q(konu__icontains=query)
+		Q(konu__isim__icontains=query)
 		).distinct()
 		if aaa:
 			sosyaller = aaa
