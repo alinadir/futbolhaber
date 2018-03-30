@@ -2,8 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 
-
-
 class Klup(models.Model):
 	isim = models.CharField(max_length=200)
 	image = models.ImageField(blank=True)
@@ -144,7 +142,37 @@ class Fikstur(models.Model):
 		ordering = ['-mac_saati']
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
-		return self.hafta.kacıncı_hafta + " " + self.takım1.isim + "-" +self.takım2.isim
+		return self.hafta.kacıncı_hafta + ".Hafta" + " " + self.takım1.isim + "-" +self.takım2.isim
+
+class Gol(models.Model):
+	isim = models.CharField(max_length=200)
+	takım =models.ForeignKey(Klup, on_delete=models.CASCADE,verbose_name="Takım",related_name="Takımgol")
+	gol_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Gol sayısı")
+	mac_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Maç sayısı")
+	
+	def __str__(self):
+		return self.isim
+
+class Asist(models.Model):
+	isim = models.CharField(max_length=200)
+	takım =models.ForeignKey(Klup, on_delete=models.CASCADE,verbose_name="Takım",related_name="Takımasist")
+	asist_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Asist sayısı")
+	mac_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Maç sayısı")
+	
+	def __str__(self):
+		return self.isim
+
+class Kart(models.Model):
+	isim = models.CharField(max_length=200)
+	takım =models.ForeignKey(Klup, on_delete=models.CASCADE,verbose_name="Takım",related_name="Takımsarı")
+	sarıkart_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Sarıkart sayısı")
+	kırmızı_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Kırmızı Kart sayısı")
+	mac_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Maç sayısı")
+	
+	def __str__(self):
+		return self.isim
+
+
 		
 
 
