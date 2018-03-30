@@ -26,7 +26,7 @@ SECRET_KEY = '42ddl)-qsr0xuy8&d-%$n!9g#hm71--2z(oxcm!9v8wm&z^1$2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.futbolzade.com"]
 
 
 # Application definition
