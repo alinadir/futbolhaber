@@ -144,33 +144,26 @@ class Fikstur(models.Model):
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
 		return self.hafta.kacıncı_hafta + ".Hafta" + " " + self.takım1.isim + "-" +self.takım2.isim
 
-class Gol(models.Model):
+class Oyuncu(models.Model):
 	isim = models.CharField(max_length=200)
 	takım =models.ForeignKey(Klup, on_delete=models.CASCADE,verbose_name="Takım",related_name="Takımgol")
-	gol_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Gol sayısı")
-	mac_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Maç sayısı")
 	
-	def __str__(self):
-		return self.isim
-
-class Asist(models.Model):
-	isim = models.CharField(max_length=200)
-	takım =models.ForeignKey(Klup, on_delete=models.CASCADE,verbose_name="Takım",related_name="Takımasist")
+	mac_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Maç sayısı")
 	asist_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Asist sayısı")
-	mac_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Maç sayısı")
-	
-	def __str__(self):
-		return self.isim
-
-class Kart(models.Model):
-	isim = models.CharField(max_length=200)
-	takım =models.ForeignKey(Klup, on_delete=models.CASCADE,verbose_name="Takım",related_name="Takımsarı")
+	gol_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Gol sayısı")
 	sarıkart_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Sarıkart sayısı")
 	kırmızı_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Kırmızı Kart sayısı")
-	mac_sayısı = models.IntegerField(default=0,blank=True,verbose_name="Maç sayısı")
-	
+
+	dogum_tarihi=models.DateTimeField(verbose_name="Doğum Tarihi",auto_now=True)
+	yaş = models.IntegerField(verbose_name="Yaş",default=0)
+	deger = models.CharField(max_length=20,blank=True)
+	ülke = models.CharField(max_length=20,blank=True)
+	maas = models.CharField(max_length=20,blank=True)
+	sözlesme_baslangıc_tarihi = models.DateTimeField(verbose_name="Sözleşme Başlangıç Tarihi",auto_now=True)
+	sözlesme_bitiş_tarihi = models.DateTimeField(verbose_name="Sözleşme Bitiş Tarihi",auto_now=True)
 	def __str__(self):
 		return self.isim
+
 
 
 		

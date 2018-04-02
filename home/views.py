@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,get_object_or_404,HttpResponseRedirect,redirect
-from .models import SosyalMedia,Yorum,TV,Yazi
-from ligler.models import Klup,Fikstur,Gol,Asist,Kart
+from .models import SosyalMedia,Yorum,TV,Yazi,Puan
+from ligler.models import Fikstur,Oyuncu
 from django.utils.text import slugify
 from .forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -11,7 +11,7 @@ from django.db.models import Q
 # Create your views here.
 def home_view(request):#ana sayfamızın
 	fikstur= Fikstur.objects.filter(hafta="2")
-	takımlar=Klup.objects.all()
+	takımlar=Puan.objects.all()
 	yazılar=Yazi.objects.all()
 	yazıbjk = yazılar.filter(konu__isim="Beşiktaş")
 	yazıgs = yazılar.filter(konu__isim="Galatasaray")
@@ -30,25 +30,25 @@ def home_view(request):#ana sayfamızın
 	gs = SosyalMedia.objects.filter(konu__isim__icontains="Galatasaray")
 	ts = SosyalMedia.objects.filter(konu__isim__icontains="Trabzonspor")
 	
-	gol = Gol.objects.all()
-	asist = Asist.objects.all()
-	kartlar = Kart.objects.all()
+	gol = Oyuncu.objects.order_by('-gol_sayısı','asist_sayısı')
+	asist = Oyuncu.objects.order_by('-asist_sayısı','gol_sayısı',)
+	kartlar = Oyuncu.objects.order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
-	golbjk = Gol.objects.filter(takım__isim="Beşiktaş")
-	asistbjk = Asist.objects.filter(takım__isim="Beşiktaş")
-	kartlarbjk = Kart.objects.filter(takım__isim="Beşiktaş")
+	golbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-gol_sayısı','asist_sayısı')
+	asistbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-asist_sayısı','gol_sayısı')
+	kartlarbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 
-	golfb = Gol.objects.filter(takım__isim="Fenerbahçe")
-	asistfb = Asist.objects.filter(takım__isim="Fenerbahçe")
-	kartlarfb = Kart.objects.filter(takım__isim="Fenerbahçe")
+	golfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-gol_sayısı','asist_sayısı')
+	asistfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-asist_sayısı','gol_sayısı')
+	kartlarfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
-	golts = Gol.objects.filter(takım__isim="Trabzonspor")
-	asistts = Asist.objects.filter(takım__isim="Trabzonspor")
-	kartlarts = Kart.objects.filter(takım__isim="Trabzonspor")
+	golts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-gol_sayısı','asist_sayısı')
+	asistts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-asist_sayısı','gol_sayısı')
+	kartlarts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
-	golgs = Gol.objects.filter(takım__isim="Galatasaray")
-	asistgs = Asist.objects.filter(takım__isim="Galatasaray")
-	kartlargs = Kart.objects.filter(takım__isim="Galatasaray")
+	golgs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-gol_sayısı','asist_sayısı')
+	asistgs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-asist_sayısı','gol_sayısı')
+	kartlargs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
 	
 	query = request.GET.get("q")

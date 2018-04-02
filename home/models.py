@@ -3,6 +3,15 @@ from django.urls import reverse
 from django.utils.text import slugify
 # Create your models here.
 
+class Puan(models.Model):
+	isim = models.CharField(max_length=200)
+	image = models.ImageField(blank=True)
+	puan = models.IntegerField(default=0,blank=True,verbose_name="Puan")
+	averaj = models.IntegerField(default=0,blank=True,verbose_name="Averaj")
+	
+	class Meta:
+		ordering = ['-puan','-averaj']
+
 class Karakterler(models.Model):
 	isim = models.CharField(max_length=40,verbose_name="İsim Soyisim")
 	image = models.ImageField()
