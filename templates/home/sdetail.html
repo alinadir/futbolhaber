@@ -5,10 +5,7 @@
 <div class="container">
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#genel">{{sosyal.isim}}</a></li>
-		<li><a data-toggle="tab" href="#BJK">Bilgi</a></li>
-		<li><a data-toggle="tab" href="#FB">FB</a></li>
-		<li><a data-toggle="tab" href="#GS">GS</a></li>
-		<li><a data-toggle="tab" href="#TS">TS</a></li>
+		
 	</ul>
 		
 				  <div class="row">
@@ -26,7 +23,7 @@
 					<p class="ert">{{sosyal.content1 |truncatechars:50}}</p>
 					
 				</div>
-				<div class="abc"> <p> {{sosyal.content2 }}<p>   </div>
+				<div> <p> {{sosyal.content2 }}<p>   </div>
 			
 				</div>
 				{% include 'home/comment.html' %}
@@ -49,8 +46,11 @@
 				<div class="abc"> <p> {{sosyal.content2 }}<p>   </div>
 				
 				</div>
-				<a href="{{ sosyal.get_absolute_url }}"type="button" class="btn btn-info btn-xs">Yorum Ekle</a>	
+					{% include 'home/buttons.html' %}
+					{% include 'home/yorum.html' %}
 				{% endfor %}
+				
+				{% include 'home/sayfalama.html' %}
 			</div><!-- Kim Ne Demiş Köşesi sonu -->
 			
 		</div>
@@ -64,6 +64,10 @@ $(document).ready(function(){
         $(this).children('.abc').toggle();
     });
     
+	 $(".yorumlar").click(function(){
+        $(this).next().toggle();
+    });
+	
 });
 
 </script>

@@ -15,7 +15,7 @@ class Puan(models.Model):
 class Karakterler(models.Model):
 	isim = models.CharField(max_length=40,verbose_name="İsim Soyisim")
 	image = models.ImageField()
-	ozgecmis = models.CharField(max_length=500,verbose_name="özgeçmiş",null=True,blank = True)
+	ozgecmis = models.TextField(max_length=1000,verbose_name="özgeçmiş",null=True,blank = True)
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
 		return self.isim
@@ -62,26 +62,26 @@ class SosyalMedia(models.Model):
 
 class Yorum(models.Model):
 	post = models.ForeignKey(SosyalMedia, related_name="comments",on_delete=models.CASCADE)
-	name = models.CharField(max_length=200)
-	content=models.TextField()
+	isim = models.CharField(max_length=200)
+	yorumunuz=models.TextField()
 	created_date = models.DateTimeField(auto_now_add=True)
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
-		return self.name
+		return self.isim
 	
 	def get_unique_name(self):
-		name=self.name
-		unique_name = self.name
+		isim=self.isim
+		unique_name = self.isim
 		counter = 1
 		
-		while Yorum.objects.filter(name = unique_name).exists():
-			unique_name = '{}-{}'.format(name,counter)
+		while Yorum.objects.filter(isim = unique_name).exists():
+			unique_name = '{}-{}'.format(isim,counter)
 			counter  += 1
 		return unique_name
 	
 	def save(self,*args,**kwargs):
 		#if not self.slug:
-		self.name = self.get_unique_name()
+		self.isim = self.get_unique_name()
 		return super(Yorum,self).save(*args,*kwargs)
 
 class TV(models.Model):

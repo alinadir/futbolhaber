@@ -10,28 +10,30 @@ from django.db.models import Q
 
 # Create your views here.
 def home_view(request):#ana sayfamızın
-	fikstur= Fikstur.objects.filter(hafta="2")
+	fikstur= Fikstur.objects.filter()
 	takımlar=Puan.objects.all()
 	yazılar=Yazi.objects.all()
 	yazıbjk = yazılar.filter(konu__isim="Beşiktaş")
 	yazıgs = yazılar.filter(konu__isim="Galatasaray")
 	yazıfb = yazılar.filter(konu__isim="Fenerbahçe")
 	yazıts = yazılar.filter(konu__isim="Trabzonspor")
+	yazıavr = yazılar.filter(konu__isim="Avrupa")
 	tv=TV.objects.all()
 	
-	bjkfikstur=Fikstur.objects.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş"))[0:2]
-	gsfikstur=Fikstur.objects.filter(Q(takım1__isim="Galatasaray")| Q(takım2__isim="Galatasaray"))[0:2]
-	fbfikstur=Fikstur.objects.filter(Q(takım1__isim="Fenerbahçe")| Q(takım2__isim="Fenerbahçe"))[0:2]
-	tsfikstur=Fikstur.objects.filter(Q(takım1__isim="Trabzonspor")| Q(takım2__isim="Trabzonspor"))[0:2]
+	bjkfikstur=Fikstur.objects.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş"))
+	gsfikstur=Fikstur.objects.filter(Q(takım1__isim="Galatasaray")| Q(takım2__isim="Galatasaray"))
+	fbfikstur=Fikstur.objects.filter(Q(takım1__isim="Fenerbahçe")| Q(takım2__isim="Fenerbahçe"))
+	tsfikstur=Fikstur.objects.filter(Q(takım1__isim="Trabzonspor")| Q(takım2__isim="Trabzonspor"))
 	
 	sosyaller = SosyalMedia.objects.all()
 	bjk = SosyalMedia.objects.filter(konu__isim__icontains="Beşiktaş")
 	fb = SosyalMedia.objects.filter(konu__isim__icontains="Fenerbahçe")
 	gs = SosyalMedia.objects.filter(konu__isim__icontains="Galatasaray")
 	ts = SosyalMedia.objects.filter(konu__isim__icontains="Trabzonspor")
+	avr = SosyalMedia.objects.filter(konu__isim__icontains="Avrupa") 
 	
-	gol = Oyuncu.objects.order_by('-gol_sayısı','asist_sayısı')
-	asist = Oyuncu.objects.order_by('-asist_sayısı','gol_sayısı',)
+	gol = Oyuncu.objects.order_by('-gol_sayısı','-asist_sayısı')
+	asist = Oyuncu.objects.order_by('-asist_sayısı','-gol_sayısı',)
 	kartlar = Oyuncu.objects.order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
 	golbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-gol_sayısı','asist_sayısı')
@@ -69,6 +71,7 @@ def home_view(request):#ana sayfamızın
 		'fb':fb,
 		'gs':gs,
 		'ts':ts,
+		'avr':avr,
 		'takımlar':takımlar,
 		'tv':tv,
 		'yazılar':yazılar,
@@ -76,6 +79,7 @@ def home_view(request):#ana sayfamızın
 		'yazıgs':yazıgs,
 		'yazıfb':yazıfb,
 		'yazıts':yazıts,
+		'yazıavr':yazıavr,
 		'fikstur':fikstur,
 		'bjkfikstur':bjkfikstur,
 		'fbfikstur':fbfikstur,
@@ -114,6 +118,31 @@ def sosyal_detail(request,slug):#ana sayfamızın
 		return redirect("homee:home")
 	
 	sosyaller=SosyalMedia.objects.filter(isim=sosyal.isim).exclude(slug=slug)
+	query = request.GET.get("q")
+	if query:
+		print(query)
+		aaa = SosyalMedia.objects.filter(
+		Q(isim__isim__icontains=query)|
+		Q(content1__icontains=query)|
+		Q(content2__icontains=query)|
+		Q(konu__isim__icontains=query)
+		).distinct()
+		if aaa:
+			sosyaller = aaa
+	
+	
+	paginator = Paginator(sosyaller, 5) # Show 25 contacts per page
+	
+	page = request.GET.get('page')
+	
+	try:
+		sosyaller = paginator.page(page)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		sosyaller = paginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		sosyaller = paginator.page(paginator.num_pages)
 	
 	context = {
 		'sosyal':sosyal,

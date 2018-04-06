@@ -1,15 +1,15 @@
 <table  class="table table-bordered ">
 	<thead>
 		<tr>
-			<td class="col-md-2">Tarih</td>
-			<td class="col-md-10">Karşılaşma</td>
+			<td class="col-md-4 col-xs-3">Tarih</td>
+			<td class="col-md-8 col-xs-9">Karşılaşma</td>
 		</tr>
 	</thead>
 {% for mac in bjkfikstur %}
     <tbody class="maclarım">
 		<tr class="goster success">
-			<td class="col-md-3">{{mac.mac_saati}}</td>
-			<td class="col-md-9">{{mac.takım1.isim}} {%if mac.macın_durumu == "baslamadı" %} -  {% else %}{{mac.takım1_skor}} - {{mac.takım2_skor}} {% endif %} {{mac.takım2.isim}}</td>
+			<td>{{mac.mac_saati}}</td>
+			<td>{{mac.takım1.isim}} {%if mac.macın_durumu == "baslamadı" %} -  {% else %}{{mac.takım1_skor}} - {{mac.takım2_skor}} {% endif %} {{mac.takım2.isim}}</td>
       </tr>
 		<tr class="ayir">
 			<td><b>Hakemler</td>

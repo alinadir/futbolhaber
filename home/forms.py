@@ -7,6 +7,6 @@ class CommentForm(forms.ModelForm):
 	class Meta:
 		model = Yorum
 		fields = [
-			'name',
-			'content',
+			'isim',
+			'yorumunuz',
 		]

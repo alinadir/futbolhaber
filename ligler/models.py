@@ -79,70 +79,72 @@ class Fikstur(models.Model):
 	kırmızı_kartlar2 = models.IntegerField(default=0,verbose_name="kırmızı_kartlar2")
 	sarı_kartlar2 = models.IntegerField(default=0,verbose_name="sarıkartlar2")
 	
-	oynadıgı_mac1 = models.IntegerField(default=0,verbose_name="Oynadığı Maç Sayısı")
-	galibiyet1 = models.IntegerField(default=0,verbose_name="Galibiyet")
-	beraberlik1 = models.IntegerField(default=0,verbose_name="Beraberlik")
-	maglubiyet1 = models.IntegerField(default=0,verbose_name="Mağlubiyet")
-	averaj1 = models.IntegerField(default=0,verbose_name="Averaj")
-	puan1 = models.IntegerField(default=0,blank=True,verbose_name="Puan")
-	
-
-	
-	oynadıgı_mac2 = models.IntegerField(default=0,verbose_name="Oynadığı Maç Sayısı")
-	galibiyet2 = models.IntegerField(default=0,verbose_name="Galibiyet")
-	beraberlik2 = models.IntegerField(default=0,verbose_name="Beraberlik")
-	maglubiyet2 = models.IntegerField(default=0,verbose_name="Mağlubiyet")
-	averaj2 = models.IntegerField(default=0,verbose_name="Averaj")
-	puan2 = models.IntegerField(default=0,blank=True,verbose_name="Puan")
-
-	
-
-	
-	def save(self,*args,**kwargs):
-		#if not self.slug:
-		
-		
-		if self.macın_durumu=="bitti" and self.kontrol==0:
-			#self.takım1.hafta_puan_hesapla(self.hafta.kacıncı_hafta)
-			#self.takım2.hafta_puan_hesapla(self.hafta.kacıncı_hafta)
-			#self.kontrol += 1
-			self.oynadıgı_mac1 = 1
-			self.oynadıgı_mac2 = 1
-			self.averaj1 =self.takım1_skor-self.takım2_skor
-			self.averaj2 =self.takım2_skor-self.takım1_skor
-
-			self.kontrol = 1
-			
-			
-			if self.takım1_skor > self.takım2_skor:
-				self.puan1 = 3
-				self.galibiyet1 = 1
-				self.maglubiyet2 =1
-				
-			
-			if self.takım1_skor < self.takım2_skor:
-				self.puan2 = 3
-				self.galibiyet2 = 1
-				self.maglubiyet1 =1
-				
-				
-			if self.takım1_skor == self.takım2_skor:
-				self.puan1 = 1
-				self.puan2 = 1
-				self.beraberlik2 = 1
-				self.beraberlik1 = 1
-					
-		return super(Fikstur,self).save(*args,*kwargs)
-			
-			
-		
-	
-	
 	class Meta:
 		ordering = ['-mac_saati']
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
 		return self.hafta.kacıncı_hafta + ".Hafta" + " " + self.takım1.isim + "-" +self.takım2.isim
+	
+	#oynadıgı_mac1 = models.IntegerField(default=0,verbose_name="Oynadığı Maç Sayısı")
+	#galibiyet1 = models.IntegerField(default=0,verbose_name="Galibiyet")
+	#beraberlik1 = models.IntegerField(default=0,verbose_name="Beraberlik")
+	#maglubiyet1 = models.IntegerField(default=0,verbose_name="Mağlubiyet")
+	#averaj1 = models.IntegerField(default=0,verbose_name="Averaj")
+	#puan1 = models.IntegerField(default=0,blank=True,verbose_name="Puan")
+	
+
+	
+	#oynadıgı_mac2 = models.IntegerField(default=0,verbose_name="Oynadığı Maç Sayısı")
+	#galibiyet2 = models.IntegerField(default=0,verbose_name="Galibiyet")
+	#beraberlik2 = models.IntegerField(default=0,verbose_name="Beraberlik")
+	#maglubiyet2 = models.IntegerField(default=0,verbose_name="Mağlubiyet")
+	#averaj2 = models.IntegerField(default=0,verbose_name="Averaj")
+	#puan2 = models.IntegerField(default=0,blank=True,verbose_name="Puan")
+
+	
+
+	
+	#def save(self,*args,**kwargs):
+		#if not self.slug:
+		
+		
+		#if self.macın_durumu=="bitti" and self.kontrol==0:
+			#self.takım1.hafta_puan_hesapla(self.hafta.kacıncı_hafta)
+			#self.takım2.hafta_puan_hesapla(self.hafta.kacıncı_hafta)
+			#self.kontrol += 1
+			#self.oynadıgı_mac1 = 1
+			#self.oynadıgı_mac2 = 1
+			#self.averaj1 =self.takım1_skor-self.takım2_skor
+			#self.averaj2 =self.takım2_skor-self.takım1_skor
+
+			#self.kontrol = 1
+			
+			
+			#if self.takım1_skor > self.takım2_skor:
+			#	self.puan1 = 3
+			#	self.galibiyet1 = 1
+			#	self.maglubiyet2 =1
+				
+			
+			#if self.takım1_skor < self.takım2_skor:
+			#	self.puan2 = 3
+			#	self.galibiyet2 = 1
+			#	self.maglubiyet1 =1
+				
+				
+			#if self.takım1_skor == self.takım2_skor:
+			#	self.puan1 = 1
+			#	self.puan2 = 1
+			#	self.beraberlik2 = 1
+			#	self.beraberlik1 = 1
+					
+		#return super(Fikstur,self).save(*args,*kwargs)
+			
+			
+		
+	
+	
+	
 
 class Oyuncu(models.Model):
 	isim = models.CharField(max_length=200)
