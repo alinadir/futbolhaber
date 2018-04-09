@@ -7,6 +7,15 @@
 <div class="container">
 {%include 'header.html' %}
 <!-- ilk row -->
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 {% include 'home/maclar.html' %}
 	<div class="row">
 	<!-- col-md-8 -->
@@ -15,12 +24,12 @@
 		<!-- Slider main container -->
 
 			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#genel">FZ</a></li>
-				<li><a data-toggle="tab" href="#BJK">BJK</a></li>
-				<li><a data-toggle="tab" href="#FB">FB</a></li>
-				<li><a data-toggle="tab" href="#GS">GS</a></li>
-				<li><a data-toggle="tab" href="#TS">TS</a></li>
-				<li><a data-toggle="tab" href="#AVR">AV</a></li>
+				<li class="active"><a data-toggle="tab" href="#genel" title ="Futbol Haberleri">FZ</a></li>
+				<li><a data-toggle="tab" href="#BJK" title = "Beşiktaş Haberleri">BJK</a></li>
+				<li><a data-toggle="tab" href="#FB" title = "Fenerbahçe Haberleri">FB</a></li>
+				<li><a data-toggle="tab" href="#GS" title = "Galatasaray Haberleri">GS</a></li>
+				<li><a data-toggle="tab" href="#TS" title = "Trabzonspor Haberleri">TS</a></li>
+				<li><a data-toggle="tab" href="#AVR" title = "Avrupadan Haberler">AV</a></li>
 			</ul>
 		
 
@@ -31,10 +40,10 @@
 						{% for sosyal in sosyaller %}
 							<div class="media">
 								<div class="media-left media-top">
-									<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+									<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 								</div>
 								<div class="media-body">
-									<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+									<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 								</div>
 								<div class="abc"> <p> {{sosyal.content2 }}<p>
 									<p><b><small>{{sosyal.publishing_date|timesince}} önce</b></small></p>
@@ -58,10 +67,10 @@
 						{% for sosyal in bjk %}
 							<div class="media">
 								<div class="media-left media-top">
-									<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+									<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 								</div>
 								<div class="media-body">
-									<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+									<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 								</div>
 								<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 							</div>
@@ -81,10 +90,10 @@
 			{% for sosyal in fb %}
 				<div class="media">
 					<div class="media-left media-top">
-						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 					</div>
 					<div class="media-body">
-						<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
 					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
@@ -105,10 +114,10 @@
 			{% for sosyal in gs %}
 				<div class="media">
 					<div class="media-left media-top">
-						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 					</div>
 					<div class="media-body">
-						<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
 					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
@@ -129,10 +138,10 @@
 			{% for sosyal in ts %}
 				<div class="media">
 					<div class="media-left media-top">
-						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 					</div>
 					<div class="media-body">
-						<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
 					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
@@ -153,10 +162,10 @@
 			{% for sosyal in avr %}
 				<div class="media">
 					<div class="media-left media-top">
-						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 					</div>
 					<div class="media-body">
-						<p class="ert"><b>{{sosyal.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</p>	
+						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
 					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		

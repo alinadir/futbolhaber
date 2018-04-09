@@ -5,12 +5,17 @@ from django.utils.text import slugify
 from .forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from django.contrib import messages
+
+
+
+
 # Create your views here.
 
 
 # Create your views here.
 def home_view(request):#ana sayfamızın
-	fikstur= Fikstur.objects.filter()
+	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-07", "2018-04-10"])
 	takımlar=Puan.objects.all()
 	yazılar=Yazi.objects.all()
 	yazıbjk = yazılar.filter(konu__isim="Beşiktaş")
@@ -20,10 +25,10 @@ def home_view(request):#ana sayfamızın
 	yazıavr = yazılar.filter(konu__isim="Avrupa")
 	tv=TV.objects.all()
 	
-	bjkfikstur=Fikstur.objects.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş"))
-	gsfikstur=Fikstur.objects.filter(Q(takım1__isim="Galatasaray")| Q(takım2__isim="Galatasaray"))
-	fbfikstur=Fikstur.objects.filter(Q(takım1__isim="Fenerbahçe")| Q(takım2__isim="Fenerbahçe"))
-	tsfikstur=Fikstur.objects.filter(Q(takım1__isim="Trabzonspor")| Q(takım2__isim="Trabzonspor"))
+	bjkfikstur=Fikstur.objects.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
+	gsfikstur=Fikstur.objects.filter(Q(takım1__isim="Galatasaray")| Q(takım2__isim="Galatasaray")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
+	fbfikstur=Fikstur.objects.filter(Q(takım1__isim="Fenerbahçe")| Q(takım2__isim="Fenerbahçe")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
+	tsfikstur=Fikstur.objects.filter(Q(takım1__isim="Trabzonspor")| Q(takım2__isim="Trabzonspor")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
 	
 	sosyaller = SosyalMedia.objects.all()
 	bjk = SosyalMedia.objects.filter(konu__isim__icontains="Beşiktaş")
@@ -113,7 +118,7 @@ def sosyal_detail(request,slug):#ana sayfamızın
 		#comment.user = request.user
 		comment.post = sosyal
 		comment.save()
-		
+		messages.success(request,'Yorumunuz başarlı bir şekilde oluşturuldu.',extra_tags='yorum-eklendi')
 		print(comment)
 		return redirect("homee:home")
 	

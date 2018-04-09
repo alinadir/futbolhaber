@@ -2,6 +2,18 @@
 {% load static %}
 {% block body%}
 {%include 'header.html' %}
+
+{% block metalar %}	
+		
+		<meta name="description" content="{{sosyal.isim.isim}} Hakkındaki Haberler">
+		<meta name="keywords" content="{{sosyal.isim.isim}}, {{sosyal.konu.isim}}">
+		<meta name="author" content="{{sosyal.isim.isim}}">
+{% endblock%}
+
+
+<title>{% block title %} {{sosyal.isim.isim}} {% endblock %}</title>
+
+
 <div class="container">
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#genel">{{sosyal.isim}}</a></li>
