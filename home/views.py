@@ -15,6 +15,10 @@ from django.contrib import messages
 
 # Create your views here.
 def home_view(request):#ana sayfamızın
+	if request.GET:
+		print(request.GET['key1'])
+		
+	
 	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-07", "2018-04-10"])
 	takımlar=Puan.objects.all()
 	yazılar=Yazi.objects.all()
