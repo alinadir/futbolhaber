@@ -112,7 +112,7 @@ def home_view(request):#ana sayfamızın
 		'golts':golts,
 		'asistts':asistts,
 		'kartlarts':kartlarts,		
-		'a',a
+		'a':a,
 	}	
 	return render(request,"home/home.html",context)#home.html in dire
 	
