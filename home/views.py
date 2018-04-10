@@ -15,8 +15,11 @@ from django.contrib import messages
 
 # Create your views here.
 def home_view(request):#ana sayfamızın
+	a=0
 	if request.GET:
-		print(request.GET['key1'])
+		a=request.GET['key1']
+		print(a)
+		
 		
 	
 	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-07", "2018-04-10"])
@@ -109,6 +112,7 @@ def home_view(request):#ana sayfamızın
 		'golts':golts,
 		'asistts':asistts,
 		'kartlarts':kartlarts,		
+		'a',a,
 	}	
 	return render(request,"home/home.html",context)#home.html in dire
 	
