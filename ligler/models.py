@@ -32,12 +32,12 @@ class Fikstur(models.Model):
 	takım2_skor= models.IntegerField(default=0,verbose_name="Takım2 skor")
 	mac_saati = models.DateTimeField("Maç saati",auto_now=False)
 	hafta = models.ForeignKey(Hafta, on_delete=models.CASCADE,verbose_name="Kaçıncı Hafta olduğu")
-	macın_durumu=models.CharField(max_length=200,default="baslamadı")
-	kontrol=models.IntegerField(default=0,verbose_name="ikinci kez kontrol etme ")
+	#macın_durumu=models.CharField(max_length=200,default="baslamadı")
+	#kontrol=models.IntegerField(default=0,verbose_name="ikinci kez kontrol etme ")
 	sezon =  models.CharField("Sezon",max_length=200,default="2017/2018")
 	hakem = models.CharField("Hakem",max_length=50,default="-")
 	yardımcı_hakemler = models.CharField("Yan Hakemler",max_length=200,default="-")
-	stadyum = models.CharField("Stadyum",max_length=50,default="-")
+	#stadyum = models.CharField("Stadyum",max_length=50,default="-")
 	
 	goller1 = models.CharField("Goller1",max_length=300,default="-")	
 	sarıkartlar1 =models.CharField("Sarı Kartlar1",max_length=200,default="-")
@@ -47,8 +47,8 @@ class Fikstur(models.Model):
 	sarıkartlar2 =models.CharField("Sarı Kartlar2",max_length=200,default="-")
 	kırmızıkartlar2 = models.CharField("Kırmızı Kartlar2",max_length=200,default="-")
 	
-	ilkonbir1 = models.CharField("ilkonbirler1",max_length=400,default="-")
-	ilkonbir2 =models.CharField("ilkonbirler1",max_length=400,default="-")
+	#ilkonbir1 = models.CharField("ilkonbirler1",max_length=400,default="-")
+	#ilkonbir2 =models.CharField("ilkonbirler1",max_length=400,default="-")
 	
 	giren_oyuncular1=models.CharField("Girenler1",max_length=200,default="-")
 	giren_oyuncular2=models.CharField("Girenler2",max_length=200,default="-")
@@ -56,31 +56,31 @@ class Fikstur(models.Model):
 	cıkan_oyuncular1=models.CharField("Çıkanlar1",max_length=200,default="-")
 	cıkan_oyuncular2=models.CharField("Çıkanlar2",max_length=200,default="-")
 	
-	topla_oynama_yüzdesi1 = models.IntegerField(default=0,verbose_name="topla_oynama_yüzdesi1")
-	kaleyi_bulan_şut1 = models.IntegerField(default=0,verbose_name="kaleyi_bulan_şut1")
-	kaleyi_bulmayan_şut1 = models.IntegerField(default=0,verbose_name="kaleyi_bulmayan_şut1")
-	kornerler1 = models.IntegerField(default=0,verbose_name="kornerler1")
-	ofsaytlar1 = models.IntegerField(default=0,verbose_name="ofsaytlar1")
-	taclar1 = models.IntegerField(default=0,verbose_name="taclar1")
-	kaleci_kurtarıslari1 = models.IntegerField(default=0,verbose_name="kaleci_kurtarıslari1")
-	fauller1 = models.IntegerField(default=0,verbose_name="fauller1")
-	kırmızı_kartlar1 = models.IntegerField(default=0,verbose_name="kırmızı_kartlar1")
-	sarı_kartlar1 = models.IntegerField(default=0,verbose_name="sarıkartlar1")
+	#topla_oynama_yüzdesi1 = models.IntegerField(default=0,verbose_name="topla_oynama_yüzdesi1")
+	#kaleyi_bulan_şut1 = models.IntegerField(default=0,verbose_name="kaleyi_bulan_şut1")
+	#kaleyi_bulmayan_şut1 = models.IntegerField(default=0,verbose_name="kaleyi_bulmayan_şut1")
+	#kornerler1 = models.IntegerField(default=0,verbose_name="kornerler1")
+	#ofsaytlar1 = models.IntegerField(default=0,verbose_name="ofsaytlar1")
+	#taclar1 = models.IntegerField(default=0,verbose_name="taclar1")
+	#kaleci_kurtarıslari1 = models.IntegerField(default=0,verbose_name="kaleci_kurtarıslari1")
+	#fauller1 = models.IntegerField(default=0,verbose_name="fauller1")
+	#kırmızı_kartlar1 = models.IntegerField(default=0,verbose_name="kırmızı_kartlar1")
+	#sarı_kartlar1 = models.IntegerField(default=0,verbose_name="sarıkartlar1")
 	
 	
-	topla_oynama_yüzdesi2 = models.IntegerField(default=0,verbose_name="topla_oynama_yüzdesi2")
-	kaleyi_bulan_şut2 = models.IntegerField(default=0,verbose_name="kaleyi_bulan_şut2")
-	kaleyi_bulmayan_şut2 = models.IntegerField(default=0,verbose_name="kaleyi_bulmayan_şut2")
-	kornerler2 = models.IntegerField(default=0,verbose_name="kornerler2")
-	ofsaytlar2 = models.IntegerField(default=0,verbose_name="ofsaytlar2")
-	kaleci_kurtarıslari2 = models.IntegerField(default=0,verbose_name="kaleci_kurtarıslari2")
-	taclar2 = models.IntegerField(default=0,verbose_name="taclar2")
-	fauller2 = models.IntegerField(default=0,verbose_name="fauller2")
-	kırmızı_kartlar2 = models.IntegerField(default=0,verbose_name="kırmızı_kartlar2")
-	sarı_kartlar2 = models.IntegerField(default=0,verbose_name="sarıkartlar2")
+	#topla_oynama_yüzdesi2 = models.IntegerField(default=0,verbose_name="topla_oynama_yüzdesi2")
+	#kaleyi_bulan_şut2 = models.IntegerField(default=0,verbose_name="kaleyi_bulan_şut2")
+	#kaleyi_bulmayan_şut2 = models.IntegerField(default=0,verbose_name="kaleyi_bulmayan_şut2")
+	#kornerler2 = models.IntegerField(default=0,verbose_name="kornerler2")
+	#ofsaytlar2 = models.IntegerField(default=0,verbose_name="ofsaytlar2")
+	#kaleci_kurtarıslari2 = models.IntegerField(default=0,verbose_name="kaleci_kurtarıslari2")
+	#taclar2 = models.IntegerField(default=0,verbose_name="taclar2")
+	#fauller2 = models.IntegerField(default=0,verbose_name="fauller2")
+	#kırmızı_kartlar2 = models.IntegerField(default=0,verbose_name="kırmızı_kartlar2")
+	#sarı_kartlar2 = models.IntegerField(default=0,verbose_name="sarıkartlar2")
 	
 	class Meta:
-		ordering = ['-mac_saati']
+		ordering = ['mac_saati']
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
 		return self.hafta.kacıncı_hafta + ".Hafta" + " " + self.takım1.isim + "-" +self.takım2.isim

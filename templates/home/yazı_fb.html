@@ -27,8 +27,9 @@
 				<tr>
 					<td class="col-md-5">Futbolcu</td>
 					<td class="col-md-5">Takım</td>
-					<td class="col-md-1">Gol</td>
 					<td class="col-md-1">Maç</td>
+					<td class="col-md-1">Asist</td>
+					<td class="col-md-1">Gol</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,8 +38,9 @@
 				
 					<td> {{futbolcu.isim}} </td>
 					<td> {{futbolcu.takım.isim}}</td>
-					<td> {{futbolcu.gol_sayısı}} </td>
-					<td> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
 				
 				</tr>
 			{% endfor %}	
@@ -51,8 +53,9 @@
 				<tr>
 					<td class="col-md-5">Futbolcu</td>
 					<td class="col-md-5">Takım</td>
-					<td class="col-md-1">Asist</td>
 					<td class="col-md-1">Maç</td>
+					<td class="col-md-1">Gol</td>
+					<td class="col-md-1">Asist</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -61,8 +64,9 @@
 				
 					<td> {{futbolcu.isim}} </td>
 					<td> {{futbolcu.takım.isim}}</td>
-					<td> {{futbolcu.asist_sayısı}} </td>
-					<td> {{futbolcu.mac_sayısı}} </td>
+						<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
 				
 				</tr>
 			{% endfor %}	
@@ -87,9 +91,9 @@
 				
 					<td> {{futbolcu.isim}} </td>
 					<td> {{futbolcu.takım.isim}}</td>
-					<td> {{futbolcu.sarıkart_sayısı}} </td>
-					<td> {{futbolcu.kırmızı_sayısı}} </td>
-					<td> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.sarıkart_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.kırmızı_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
 				
 				</tr>
 			{% endfor %}	

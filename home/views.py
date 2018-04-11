@@ -6,6 +6,7 @@ from .forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -14,15 +15,10 @@ from django.contrib import messages
 
 
 # Create your views here.
-def home_view(request):#ana sayfamızın
-	a=0
-	if request.GET:
-		a=request.GET['key1']
-		print(a)
-		
-		
+@csrf_exempt
+def home_view(request):
 	
-	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-07", "2018-04-10"])
+	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-11", "2018-04-18"])
 	takımlar=Puan.objects.all()
 	yazılar=Yazi.objects.all()
 	yazıbjk = yazılar.filter(konu__isim="Beşiktaş")
@@ -51,7 +47,7 @@ def home_view(request):#ana sayfamızın
 	golbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-gol_sayısı','asist_sayısı')
 	asistbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-asist_sayısı','gol_sayısı')
 	kartlarbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
-
+	
 	golfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-gol_sayısı','asist_sayısı')
 	asistfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-asist_sayısı','gol_sayısı')
 	kartlarfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
@@ -76,7 +72,9 @@ def home_view(request):#ana sayfamızın
 		).distinct()
 		if aaa:
 			sosyaller = aaa
-			
+	
+	
+	
 	context = {
 		'sosyaller':sosyaller,
 		'bjk':bjk,
@@ -111,9 +109,17 @@ def home_view(request):#ana sayfamızın
 		'kartlargs':kartlargs,
 		'golts':golts,
 		'asistts':asistts,
-		'kartlarts':kartlarts,		
-		'a':a,
+		'kartlarts':kartlarts,
+		
+		
 	}	
+	#if request.GET:
+	#	a=request.GET['key1']
+	#	Konu.objects.create(isim=a)
+		#print(context)
+		
+		
+		
 	return render(request,"home/home.html",context)#home.html in dire
 	
 
