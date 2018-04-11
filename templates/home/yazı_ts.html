@@ -7,9 +7,9 @@
 </ul>
 <div class="tab-content">
 
-	<div id="yazıts" class="tab-pane fade in active well well-sm">
+	<div id="yazıts" class="tab-pane fade in active">
 		 {% for yazi in yazıts %}
-		 <div class="kenar">
+		 <div class="kenar well well-sm">
 			<h3>{{yazi.yazının_baslıgı}}</h3>
 			<p class="text-justify truncate">{{yazi.ana_content|truncatechars:200}}</p>
 			<p class="text-justify gizli">{{yazi.ana_content}}</p>
