@@ -32,7 +32,7 @@ class Fikstur(models.Model):
 	takım2_skor= models.IntegerField(default=0,verbose_name="Takım2 skor")
 	mac_saati = models.DateTimeField("Maç saati",auto_now=False)
 	hafta = models.ForeignKey(Hafta, on_delete=models.CASCADE,verbose_name="Kaçıncı Hafta olduğu")
-	#macın_durumu=models.CharField(max_length=200,default="baslamadı")
+	macın_durumu=models.CharField(max_length=200,default="baslamadı")
 	#kontrol=models.IntegerField(default=0,verbose_name="ikinci kez kontrol etme ")
 	sezon =  models.CharField("Sezon",max_length=200,default="2017/2018")
 	hakem = models.CharField("Hakem",max_length=50,default="-")
