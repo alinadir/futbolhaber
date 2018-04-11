@@ -4,12 +4,12 @@ from django.utils.text import slugify
 
 class Klup(models.Model):
 	isim = models.CharField(max_length=200)
-	image = models.ImageField(blank=True)
-	puan = models.IntegerField(default=0,blank=True,verbose_name="Puan")
-	averaj = models.IntegerField(default=0,blank=True,verbose_name="Averaj")
+	#image = models.ImageField(blank=True)
+	#puan = models.IntegerField(default=0,blank=True,verbose_name="Puan")
+	#averaj = models.IntegerField(default=0,blank=True,verbose_name="Averaj")
 	
 	class Meta:
-		ordering = ['-puan','-averaj']
+		ordering = ['isim']
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
 		return self.isim
