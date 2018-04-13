@@ -25,9 +25,15 @@ table {
 .well {
 	color:black;
 	border:ridge;
-	
-	
 }
+
+.well-sm{
+	padding-top:0;
+	padding-bottom:0;
+	
+	margin-top:2px;
+	
+	}
 .fiks {
 	margin-top:20px;
 	
@@ -38,7 +44,7 @@ h3 {
 
 .kenar {
 	cursor:pointer;
-	margin-bottom:10px;
+	margin-bottom:6px;
 }
 .gizli {
 	display:none;

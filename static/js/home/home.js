@@ -6,7 +6,11 @@ $(document).ready(function(){
 	
 	
 	 $(".yorumlar").click(function(){
-        $(this).next().toggle();
+		 
+				$(this).next().toggle();
+		 
+		 
+        
     });
 	
 	$(".kenar").click(function(){

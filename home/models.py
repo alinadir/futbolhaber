@@ -62,7 +62,7 @@ class SosyalMedia(models.Model):
 
 class Yorum(models.Model):
 	post = models.ForeignKey(SosyalMedia, related_name="comments",on_delete=models.CASCADE)
-	isim = models.CharField(max_length=200)
+	isim = models.CharField(max_length=50)
 	yorumunuz=models.TextField()
 	created_date = models.DateTimeField(auto_now_add=True)
 	
@@ -84,16 +84,6 @@ class Yorum(models.Model):
 		self.isim = self.get_unique_name()
 		return super(Yorum,self).save(*args,*kwargs)
 
-class TV(models.Model):
-	programın_adı = models.CharField(max_length=200)
-	kanal_adı = models.CharField(max_length=200)
-	programın_saati = models.DateTimeField("Maç saati")
-	sunucular= models.CharField(max_length=200,blank=True,null=True)
-	konuklar =models.CharField(max_length=200,blank=True,null=True)
-	
-	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
-		return self.programın_adı
-
 class Yazarlar(models.Model):
 
 	isim = models.CharField(max_length=200)
@@ -105,46 +95,12 @@ class Yazi(models.Model):
 	yazar = models.ForeignKey(Yazarlar, on_delete=models.CASCADE,verbose_name="yazar",related_name="yazar")
 	yazının_baslıgı = models.CharField(max_length=200)
 	konu = models.ForeignKey(Konu,on_delete=models.CASCADE,related_name="İlgi")
+	#baslık_yazısı = models.CharField(max_length=300,verbose_name="media içeriği")
 	ana_content=models.TextField()
+	created_date = models.DateTimeField(auto_now_add=True)
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
 		return self.yazar.isim + " " + self.yazının_baslıgı
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
+		
+	class Meta:
+		ordering = ['-created_date']

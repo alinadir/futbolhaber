@@ -1,8 +1,12 @@
+<a href='https://twitter.com/intent/tweet?=&text={{sosyal.isim.isim}}:"{{sosyal.content1}}". http://www.futbolzade.com/{{sosyal.get_absolute_url}}' class="btn btn-info btn-xs" id="Tweeet" type="button" title="Twitterde paylaş"><i class= "fab fa-twitter" ></i></a>
 <button type="button" class="btn btn-success btn-xs" aria-label="Left Align">
 	<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
 </button>
 <button type="button" class="btn btn-danger btn-xs" aria-label="Left Align">
 	<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
 </button>
-<a href="{{ sosyal.get_absolute_url }}"type="button" class="btn btn-primary btn-xs">Yorum Ekle</a>	
-<a class="btn btn-info btn-xs yorumlar" type="button">Yorumlar <span class="badge">{{sosyal.comments.count}}</span></a>
+<a href="{{ sosyal.get_absolute_url }}"type="button" class="btn btn-primary btn-xs" title="Yorum Ekle"><span class="glyphicon glyphicon-pencil"></span></a>	
+<a class="btn btn-warning btn-xs yorumlar" type="button" title="Yorumlar"><span class="glyphicon glyphicon-comment">{{sosyal.comments.count}}</span></a>
+
+
+

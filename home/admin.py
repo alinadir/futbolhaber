@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SosyalMedia,Yorum,Karakterler,TV,Yazi,Yazarlar,Konu,Puan
+from .models import SosyalMedia,Yorum,Karakterler,Yazi,Yazarlar,Konu,Puan
 from django.utils.text import slugify
 
 # Register your models here.
@@ -23,11 +23,32 @@ class SosyalAdmin(admin.ModelAdmin):
 	class Meta:
 		model = SosyalMedia
 
+class YazıAdmin(admin.ModelAdmin):
+	
+	list_display = ['yazar','yazının_baslıgı']
+	list_display_links = ['yazar']
+	list_filter = ['yazar']
+	search_fields = ['ana_content','yazar','yazının_baslıgı']
+	list_editable = ['yazının_baslıgı',]#buraya verdiğimiz alanlar link halinde olmamalı.
+	class Meta:
+		model = Yazi
+
+class YorumAdmin(admin.ModelAdmin):
+	
+	list_display = ['isim','yorumunuz']
+	list_display_links = ['isim']
+	list_filter = ['isim']
+	search_fields = ['isim','yorumunuz',]
+	list_editable = ['yorumunuz',]#buraya verdiğimiz alanlar link halinde olmamalı.
+	class Meta:
+		model = Yorum
+
+
 admin.site.register(SosyalMedia,SosyalAdmin)
 admin.site.register(Puan,PuanAdmin)
-admin.site.register(Yorum)
+admin.site.register(Yazi,YazıAdmin)
+admin.site.register(Yorum,YorumAdmin)
 admin.site.register(Karakterler)
-admin.site.register(TV)
-admin.site.register(Yazi)
 admin.site.register(Yazarlar)
 admin.site.register(Konu)
+

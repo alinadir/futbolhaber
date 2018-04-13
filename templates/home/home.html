@@ -18,6 +18,9 @@
 
 
 
+  <!--user icon in two different styles-->
+
+
 
 {% include 'home/maclar.html' %}
 	<div class="row">
@@ -48,7 +51,7 @@
 								<div class="media-body">
 									<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 								</div>
-								<div class="abc"> <p> {{sosyal.content2 }}<p>
+								<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p>
 									<p><b><small>{{sosyal.publishing_date|timesince}} önce</b></small></p>
 								</div>
 				
@@ -75,7 +78,7 @@
 								<div class="media-body">
 									<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 								</div>
-								<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+								<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 							</div>
 							{% include 'home/buttons.html' %}
 							{% include 'home/yorum.html' %}
@@ -99,7 +102,7 @@
 						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
-					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+					<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 				</div>
 				{% include 'home/buttons.html' %}
 				{% include 'home/yorum.html' %}
@@ -123,7 +126,7 @@
 						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
-					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+					<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 				</div>
 				{% include 'home/buttons.html' %}
 				{% include 'home/yorum.html' %}
@@ -147,7 +150,7 @@
 						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
-					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+					<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 				</div>
 				{% include 'home/buttons.html' %}
 				{% include 'home/yorum.html' %}
@@ -171,7 +174,7 @@
 						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
-					<div class="abc"> <p> {{sosyal.content2 }}<p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+					<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 				</div>
 				{% include 'home/buttons.html' %}
 				{% include 'home/yorum.html' %}

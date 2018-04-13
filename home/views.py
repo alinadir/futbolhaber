@@ -1,21 +1,13 @@
 from django.shortcuts import render,HttpResponse,get_object_or_404,HttpResponseRedirect,redirect
-from .models import SosyalMedia,Yorum,TV,Yazi,Puan
+from .models import SosyalMedia,Yorum,Yazi,Puan
 from ligler.models import Fikstur,Oyuncu
 from django.utils.text import slugify
 from .forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
 from django.contrib import messages
-from django.views.decorators.csrf import csrf_exempt
+#from django.views.decorators.csrf import csrf_exempt
 
-
-
-
-# Create your views here.
-
-
-# Create your views here.
-@csrf_exempt
 def home_view(request):
 	
 	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-11", "2018-04-18"])
@@ -26,7 +18,7 @@ def home_view(request):
 	yazıfb = yazılar.filter(konu__isim="Fenerbahçe")
 	yazıts = yazılar.filter(konu__isim="Trabzonspor")
 	yazıavr = yazılar.filter(konu__isim="Avrupa")
-	tv=TV.objects.all()
+	
 	
 	bjkfikstur=Fikstur.objects.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
 	gsfikstur=Fikstur.objects.filter(Q(takım1__isim="Galatasaray")| Q(takım2__isim="Galatasaray")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
@@ -83,7 +75,6 @@ def home_view(request):
 		'ts':ts,
 		'avr':avr,
 		'takımlar':takımlar,
-		'tv':tv,
 		'yazılar':yazılar,
 		'yazıbjk':yazıbjk,
 		'yazıgs':yazıgs,
