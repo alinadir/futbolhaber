@@ -10,7 +10,7 @@ from django.contrib import messages
 
 def home_view(request):
 	
-	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-11", "2018-04-18"])
+	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-16", "2018-04-23"])
 	takımlar=Puan.objects.all()
 	yazılar=Yazi.objects.all()[0:15]
 	yazıbjk = Yazi.objects.filter(konu__isim="Beşiktaş")[0:10]
