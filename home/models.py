@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Puan(models.Model):
@@ -21,14 +22,14 @@ class Karakterler(models.Model):
 		return self.isim
 		
 class Konu(models.Model):
-	isim = models.CharField(max_length=40,verbose_name="Örnek:Beşiktaş,Genel,Dünya,Anadolu")
+	isim = models.CharField(max_length=100,verbose_name="Örnek:Beşiktaş,Genel,Dünya,Anadolu")
 	def __str__(self):
 		return self.isim
 			
 class SosyalMedia(models.Model):
 	isim = models.ForeignKey(Karakterler, on_delete=models.CASCADE,related_name="Karakterler")
 	content1 = models.CharField(max_length=300,verbose_name="media içeriği")
-	content2 = models.TextField()
+	content2 = RichTextField()
 	konu = models.ForeignKey(Konu,on_delete=models.CASCADE,related_name="Konu")
 	#image = models.ImageField(null=True, blank=True)
 	slug = models.SlugField(unique=True, editable=False,max_length=130)
@@ -96,7 +97,7 @@ class Yazi(models.Model):
 	yazının_baslıgı = models.CharField(max_length=200)
 	konu = models.ForeignKey(Konu,on_delete=models.CASCADE,related_name="İlgi")
 	#baslık_yazısı = models.CharField(max_length=300,verbose_name="media içeriği")
-	ana_content=models.TextField()
+	ana_content=RichTextField()
 	created_date = models.DateTimeField(auto_now_add=True)
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.

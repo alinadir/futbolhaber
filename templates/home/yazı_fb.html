@@ -11,8 +11,8 @@
 		{% for yazi in yazıfb %} 
 		<div class="kenar well well-sm">
 			<h3>{{yazi.yazının_baslıgı}}</h3>
-			<p class="text-justify truncate">{{yazi.ana_content|truncatechars:200}}</p>
-			<div class="gizli"><p class="text-justify">{{yazi.ana_content|safe|linebreaks}}</p></div>
+			<div class="truncate  text-justify"><p>{{yazi.ana_content|safe|truncatechars:240}}</p></div>
+			<div class="gizli  text-justify"><p>{{yazi.ana_content|safe|linebreaks}}</p></div>
 			<p class="text-center"><b>---{{yazi.yazar.isim}}---</b></p>
 		</div>
 		{% endfor %}

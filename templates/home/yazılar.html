@@ -11,11 +11,28 @@
 	{% for yazi in yazılar %}
 		<div class="kenar well well-sm">
 			<h3>{{yazi.yazının_baslıgı}}</h3>
-			<p class="text-justify truncate">{{yazi.ana_content|truncatechars:200}}</p>
-			<div class="gizli"><p class="text-justify">{{yazi.ana_content|safe|linebreaks}}</p></div>
+			<div class="truncate text-justify"><p>{{yazi.ana_content|safe|truncatechars:240}}</p></div>
+			<div class="gizli text-justify"><p>{{yazi.ana_content|safe}}</p></div>
 			<p class="text-center"><b>---{{yazi.yazar.isim}}---</b></p>
 		</div>
 			{% endfor %}
+	{% for sosyal in sosyaller1 %}
+		<div class="media">
+			<div class="media-left media-top">
+				<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
+			</div>
+			<div class="media-body">
+				<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
+			</div>
+			<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p>
+				<p><b><small>{{sosyal.publishing_date|timesince}} önce</b></small></p>
+			</div>
+				
+		</div>
+	{% include 'home/buttons.html' %}
+	{% include 'home/yorum.html' %}	
+	{% endfor %}
+			
 	</div>
 	<div id="fikstur" class="tab-pane fade">
 	{% include 'home/tv_fikstur.html' %}						

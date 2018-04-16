@@ -6,9 +6,9 @@ $(document).ready(function(){
 	
 	
 	 $(".yorumlar").click(function(){
-		 
+		 if($(this).text()!=0){
 				$(this).next().toggle();
-		 
+		 }
 		 
         
     });

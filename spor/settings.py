@@ -24,9 +24,9 @@ print(BASE_DIR)
 SECRET_KEY = '42ddl)-qsr0xuy8&d-%$n!9g#hm71--2z(oxcm!9v8wm&z^1$2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.futbolzade.com"]
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 	'django_cleanup',
 	'crispy_forms',
 	'captcha',
+	'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 RECAPTCHA_PUBLIC_KEY = '6LeEHkgUAAAAAKY9iZHVhhqPNz_Sm30HBSXfg0d8'
 RECAPTCHA_PRIVATE_KEY = '6LeEHkgUAAAAAHjdoCweyg6wPJrbVss8b_YnwJsG'
 NOCAPTCHA = True
+
+CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL,'js/jquery.min.js')

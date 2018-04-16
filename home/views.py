@@ -12,12 +12,12 @@ def home_view(request):
 	
 	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-04-11", "2018-04-18"])
 	takımlar=Puan.objects.all()
-	yazılar=Yazi.objects.all()
-	yazıbjk = yazılar.filter(konu__isim="Beşiktaş")
-	yazıgs = yazılar.filter(konu__isim="Galatasaray")
-	yazıfb = yazılar.filter(konu__isim="Fenerbahçe")
-	yazıts = yazılar.filter(konu__isim="Trabzonspor")
-	yazıavr = yazılar.filter(konu__isim="Avrupa")
+	yazılar=Yazi.objects.all()[0:15]
+	yazıbjk = Yazi.objects.filter(konu__isim="Beşiktaş")[0:10]
+	yazıgs = Yazi.objects.filter(konu__isim="Galatasaray")[0:10]
+	yazıfb = Yazi.objects.filter(konu__isim="Fenerbahçe")[0:10]
+	yazıts = Yazi.objects.filter(konu__isim="Trabzonspor")[0:10]
+	yazıavr = Yazi.objects.filter(konu__isim="Avrupa")[0:10]
 	
 	
 	bjkfikstur=Fikstur.objects.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
@@ -25,12 +25,13 @@ def home_view(request):
 	fbfikstur=Fikstur.objects.filter(Q(takım1__isim="Fenerbahçe")| Q(takım2__isim="Fenerbahçe")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
 	tsfikstur=Fikstur.objects.filter(Q(takım1__isim="Trabzonspor")| Q(takım2__isim="Trabzonspor")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
 	
-	sosyaller = SosyalMedia.objects.all()
-	bjk = SosyalMedia.objects.filter(konu__isim__icontains="Beşiktaş")
-	fb = SosyalMedia.objects.filter(konu__isim__icontains="Fenerbahçe")
-	gs = SosyalMedia.objects.filter(konu__isim__icontains="Galatasaray")
-	ts = SosyalMedia.objects.filter(konu__isim__icontains="Trabzonspor")
-	avr = SosyalMedia.objects.filter(konu__isim__icontains="Avrupa") 
+	sosyaller = SosyalMedia.objects.all()[0:35]
+	#sosyaller1 = SosyalMedia.objects.all()[40:54]
+	bjk = SosyalMedia.objects.filter(konu__isim__icontains="Beşiktaş")[0:35]
+	fb = SosyalMedia.objects.filter(konu__isim__icontains="Fenerbahçe")[0:35]
+	gs = SosyalMedia.objects.filter(konu__isim__icontains="Galatasaray")[0:35]
+	ts = SosyalMedia.objects.filter(konu__isim__icontains="Trabzonspor")[0:35]
+	avr = SosyalMedia.objects.filter(konu__isim__icontains="Avrupa")[0:35]
 	
 	gol = Oyuncu.objects.order_by('-gol_sayısı','-asist_sayısı')
 	asist = Oyuncu.objects.order_by('-asist_sayısı','-gol_sayısı',)
@@ -69,6 +70,7 @@ def home_view(request):
 	
 	context = {
 		'sosyaller':sosyaller,
+		#'sosyaller1':sosyaller1,
 		'bjk':bjk,
 		'fb':fb,
 		'gs':gs,
@@ -131,7 +133,7 @@ def sosyal_detail(request,slug):#ana sayfamızın
 	query = request.GET.get("q")
 	if query:
 		print(query)
-		aaa = SosyalMedia.objects.filter(
+		aaa = sosyaller.filter(
 		Q(isim__isim__icontains=query)|
 		Q(content1__icontains=query)|
 		Q(content2__icontains=query)|

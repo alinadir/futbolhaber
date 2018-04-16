@@ -48,10 +48,10 @@
 								<div class="media-left media-top">
 									<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 								</div>
-								<div class="media-body">
-									<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
+								<div class="media-body text-justify">
+									<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1|truncatechars:200}}".</h5>	
 								</div>
-								<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p>
+								<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p>
 									<p><b><small>{{sosyal.publishing_date|timesince}} önce</b></small></p>
 								</div>
 				
@@ -75,10 +75,10 @@
 								<div class="media-left media-top">
 									<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 								</div>
-								<div class="media-body">
+								<div class="media-body text-justify">
 									<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 								</div>
-								<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+								<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 							</div>
 							{% include 'home/buttons.html' %}
 							{% include 'home/yorum.html' %}
@@ -98,11 +98,11 @@
 					<div class="media-left media-top">
 						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 					</div>
-					<div class="media-body">
+					<div class="media-body text-justify">
 						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
-					<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+					<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 				</div>
 				{% include 'home/buttons.html' %}
 				{% include 'home/yorum.html' %}
@@ -122,11 +122,11 @@
 					<div class="media-left media-top">
 						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 					</div>
-					<div class="media-body">
+					<div class="media-body text-justify">
 						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
-					<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+					<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 				</div>
 				{% include 'home/buttons.html' %}
 				{% include 'home/yorum.html' %}
@@ -146,11 +146,11 @@
 					<div class="media-left media-top">
 						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 					</div>
-					<div class="media-body">
+					<div class="media-body text-justify">
 						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
-					<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+					<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 				</div>
 				{% include 'home/buttons.html' %}
 				{% include 'home/yorum.html' %}
@@ -170,11 +170,11 @@
 					<div class="media-left media-top">
 						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
 					</div>
-					<div class="media-body">
+					<div class="media-body text-justify">
 						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
 					
 					</div>
-					<div class="abc"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+					<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
 				</div>
 				{% include 'home/buttons.html' %}
 				{% include 'home/yorum.html' %}
@@ -191,4 +191,5 @@
 	</div><!-- ilk row sonu -->		
 </div>			
 <script src="{% static 'js/home/home.js'%}"></script>
+
 {% endblock %}
