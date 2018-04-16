@@ -33,9 +33,9 @@ def home_view(request):
 	ts = SosyalMedia.objects.filter(konu__isim__icontains="Trabzonspor")[0:35]
 	avr = SosyalMedia.objects.filter(konu__isim__icontains="Avrupa")[0:35]
 	
-	gol = Oyuncu.objects.order_by('-gol_sayısı','-asist_sayısı')[0:11]
-	asist = Oyuncu.objects.order_by('-asist_sayısı','-gol_sayısı')[0:11]
-	kartlar = Oyuncu.objects.order_by('-kırmızı_sayısı','-sarıkart_sayısı')[0:11]
+	gol = Oyuncu.objects.order_by('-gol_sayısı','-asist_sayısı')[0:10]
+	asist = Oyuncu.objects.order_by('-asist_sayısı','-gol_sayısı')[0:10]
+	kartlar = Oyuncu.objects.order_by('-kırmızı_sayısı','-sarıkart_sayısı')[0:10]
 	
 	golbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-gol_sayısı','asist_sayısı')
 	asistbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-asist_sayısı','gol_sayısı')
