@@ -1,9 +1,9 @@
 <ul class="nav nav-tabs ikinci-tabs">
 	<li class="active"><a data-toggle="tab" href="#yazı1" title ="Futbolzade Köşe Yazıları">FZ</a></li>
-	<li ><a data-toggle="tab" href="#fikstur" title ="Haftanın Maçları">Maç</a></li>
+	<li ><a data-toggle="tab" href="#fikstur" title ="Haftanın Maçları">Fikstür</a></li>
 	<li ><a data-toggle="tab" href="#golgenel" title = "Gol Krallığı">Gol</a></li>
 	<li ><a data-toggle="tab" href="#asistgenel" title = "Asist Krallığı">Asist</a></li>
-	<li ><a data-toggle="tab" href="#kartgenel" title = "Sarı ve Kırmızı Kart Tablosu">Kart</a></li>
+	<!--<li ><a data-toggle="tab" href="#kartgenel" title = "Sarı ve Kırmızı Kart Tablosu">Kart</a></li> -->
 </ul>
 <div class="tab-content">
 
@@ -45,7 +45,7 @@
 					<td class="col-md-5">Futbolcu</td>
 					<td class="col-md-5">Takım</td>
 					<td class="col-md-1">Maç</td>
-					<td class="col-md-1">Asist</td>
+					<!--<td class="col-md-1">Asist</td>-->
 					<td class="col-md-1">Gol</td>
 					
 				</tr>
@@ -57,7 +57,7 @@
 					<td> {{futbolcu.isim}} </td>
 					<td> {{futbolcu.takım.isim}}</td>
 					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
-					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+					<!--<td class="text-center"> {{futbolcu.asist_sayısı}} </td>-->
 					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
 				
 				
@@ -73,7 +73,7 @@
 					<td class="col-md-5">Futbolcu</td>
 					<td class="col-md-5">Takım</td>				
 					<td class="col-md-1">Maç</td>
-					<td class="col-md-1">Gol</td>
+					<!--<td class="col-md-1">Gol</td>-->
 					<td class="col-md-1">Asist</td>
 				</tr>
 			</thead>
@@ -85,7 +85,7 @@
 					<td> {{futbolcu.takım.isim}}</td>
 					
 					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
-					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+					<!--<td class="text-center"> {{futbolcu.gol_sayısı}} </td>-->
 					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
 				</tr>
 			{% endfor %}	
@@ -93,7 +93,7 @@
 		</table>
 	</div>
 
-	<div id="kartgenel" class="tab-pane fade">
+	<!--<div id="kartgenel" class="tab-pane fade">
 		<table  class="table table-bordered ">
 			<thead>
 				<tr>
@@ -118,7 +118,7 @@
 			{% endfor %}	
 			</tbody>
 		</table>
-	</div>
+	</div>-->
 		
 </div>
 			

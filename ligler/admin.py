@@ -17,7 +17,7 @@ class FiksturAdmin(admin.ModelAdmin):
 	
 	list_display = ['takım1','takım2','takım1_skor','takım2_skor','mac_saati','goller1','sarıkartlar1','kırmızıkartlar1','goller2','sarıkartlar2','kırmızıkartlar2']
 	list_display_links = ['takım1','takım2']
-	list_filter = ['takım1','takım2']
+	list_filter = ['hafta','takım1','takım2']
 	search_fields = ['takım1','takım2','goller1','sarıkartlar1','kırmızıkartlar1','goller2','sarıkartlar2','kırmızıkartlar2']
 	list_editable = ['takım1_skor','takım2_skor','mac_saati','goller1','sarıkartlar1','kırmızıkartlar1','goller2','sarıkartlar2','kırmızıkartlar2',]#buraya verdiğimiz alanlar link halinde olmamalı.
 	class Meta:
