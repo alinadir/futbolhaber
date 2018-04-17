@@ -26,7 +26,7 @@
 			<div class=" col-xs-12 col-md-6 col-sm-6"> <!-- Kim Ne Demiş Köşesi başı -->
 					
 					
-					<div class="media text-justify">
+					<div class="media">
 					<div class="media-left media-top">
 						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
 					</div>
@@ -35,7 +35,7 @@
 					
 					
 				</div>
-				<div> <p> {{sosyal.content2|safe }}<p>   </div>
+				<div class="text-justify"> <p> {{sosyal.content2|safe }}<p>   </div>
 			
 				</div>
 				{% include 'home/comment.html' %}
@@ -46,7 +46,7 @@
 			<div class=" col-xs-12 col-md-6 col-sm-6"> <!-- Kim Ne Demiş Köşesi başı -->
 					{% for sosyal in sosyaller %}
 					
-					<div class="media text-justify">
+					<div class="media">
 					<div class="media-left media-top">
 						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="...">
 					</div>
@@ -55,7 +55,7 @@
 					
 					
 				</div>
-				<div class="abc"> <p> {{sosyal.content2|safe }}<p>   </div>
+				<div class="abc text-justify"> <p> {{sosyal.content2|safe }}<p>   </div>
 				
 				</div>
 					{% include 'home/buttons.html' %}
