@@ -8,7 +8,7 @@ class OyuncuAdmin(admin.ModelAdmin):
 	list_display = ['isim','takım','mac_sayısı','asist_sayısı','gol_sayısı','sarıkart_sayısı','kırmızı_sayısı']
 	list_display_links = ['isim']
 	list_filter = ['isim','takım']
-	search_fields = ['isim','takım']
+	search_fields = ['isim']
 	list_editable = ['mac_sayısı','asist_sayısı','gol_sayısı','sarıkart_sayısı','kırmızı_sayısı',]#buraya verdiğimiz alanlar link halinde olmamalı.
 	class Meta:
 		model = Oyuncu
