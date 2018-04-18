@@ -165,6 +165,9 @@ class Oyuncu(models.Model):
 	sözlesme_bitiş_tarihi = models.DateTimeField(verbose_name="Sözleşme Bitiş Tarihi",auto_now=True)
 	def __str__(self):
 		return self.isim
+	
+	class Meta:
+		ordering = ['mac_sayısı']
 
 
 

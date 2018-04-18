@@ -38,19 +38,19 @@ def home_view(request):
 	kartlar = Oyuncu.objects.order_by('-kırmızı_sayısı','-sarıkart_sayısı')[0:10]
 	
 	golbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-gol_sayısı','asist_sayısı')
-	asistbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-asist_sayısı','gol_sayısı')
+	asistbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-asist_sayısı','-gol_sayısı')
 	kartlarbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
 	golfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-gol_sayısı','asist_sayısı')
-	asistfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-asist_sayısı','gol_sayısı')
+	asistfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-asist_sayısı','-gol_sayısı')
 	kartlarfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
 	golts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-gol_sayısı','asist_sayısı')
-	asistts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-asist_sayısı','gol_sayısı')
+	asistts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-asist_sayısı','-gol_sayısı')
 	kartlarts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
 	golgs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-gol_sayısı','asist_sayısı')
-	asistgs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-asist_sayısı','gol_sayısı')
+	asistgs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-asist_sayısı','-gol_sayısı')
 	kartlargs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
 	
