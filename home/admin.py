@@ -18,7 +18,7 @@ class SosyalAdmin(admin.ModelAdmin):
 	list_display = ['isim','content1']
 	list_display_links = ['isim']
 	list_filter = ['publishing_date']
-	search_fields = ['isim','content1','content2']
+	search_fields = ['isim']
 	list_editable = ['content1',]#buraya verdiğimiz alanlar link halinde olmamalı.
 	class Meta:
 		model = SosyalMedia
