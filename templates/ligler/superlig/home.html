@@ -3,87 +3,117 @@
 {% block csss %} rel="stylesheet" href="{% static 'css/ligler/style.css' %}"  {% endblock %}
 {% block body%}
 {% include 'header.html'%}
-<body>
-<div class="container">	
-<!-- Küçük Puan Durumu -->
-	<div class ="row">
-		<div class="col-md-8">
-			<!-- Tekli düğme -->
-			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#Puan">Puan Durumu</a></li>
-				<li><a data-toggle="tab" href="#fikstur">Fikstür</a></li>
-				<li><a data-toggle="tab" href="#FB">İstatistikler</a></li>
-				<li><a data-toggle="tab" href="#GS">GS</a></li>
-				<li><a data-toggle="tab" href="#TS">TS</a></li>
+<div class="container">
+<div class="row">
+	<!-- col-md-8 -->
+		<div class="col-md-8 col-md-push-2 col-sm-12"> <!-- Genel Navbar -->
+		
+		<!-- Slider main container -->
+
+<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#genel" title ="Futbol Haberleri"><i class="fa fa-home" aria-hidden="true"></i></i></a></li>
+				<li><a data-toggle="tab" href="#BJK" title = "Beşiktaş Haberleri">BJK</a></li>
+				<li><a data-toggle="tab" href="#FB" title = "Fenerbahçe Haberleri">FB</a></li>
+				<li><a data-toggle="tab" href="#GS" title = "Galatasaray Haberleri">GS</a></li>
+				<li><a data-toggle="tab" href="#TS" title = "Trabzonspor Haberleri">TS</a></li>
+				<li><a data-toggle="tab" href="#AVR" title = "Avrupadan Haberler">AVR</a></li>
+				<li><a data-toggle="tab" href="#AVR" title = "Avrupadan Haberler">FZ</a></li>
 			</ul>
+<div class="tab-content">
+
+	<div id="genel" class="tab-pane fade in active ">
+	{% include 'home/tv_fikstur.html' %}
+			
+	</div>
+	<div id="fikstur" class="tab-pane fade">
+							
+	</div>
+	
+	<div id="golgenel" class="tab-pane fade">
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-5">Futbolcu</td>
+					<td class="col-md-5">Takım</td>
+					<td class="col-md-1">Maç</td>
+					<!--<td class="col-md-1">Asist</td>-->
+					<td class="col-md-1">Gol</td>
+					
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in gol %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					<td> {{futbolcu.takım.isim}}</td>
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<!--<td class="text-center"> {{futbolcu.asist_sayısı}} </td>-->
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+				
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+	<div id="asistgenel" class="tab-pane fade">
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-5">Futbolcu</td>
+					<td class="col-md-5">Takım</td>				
+					<td class="col-md-1">Maç</td>
+					<!--<td class="col-md-1">Gol</td>-->
+					<td class="col-md-1">Asist</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in asist %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					<td> {{futbolcu.takım.isim}}</td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<!--<td class="text-center"> {{futbolcu.gol_sayısı}} </td>-->
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+
+	<!--<div id="kartgenel" class="tab-pane fade">
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-4">Futbolcu</td>
+					<td class="col-md-4">Takım</td>
+					<td class="col-md-1">Sarı</td>
+					<td class="col-md-2">Kırmızı</td>
+					<td class="col-md-1">Maç</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in kartlar %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					<td> {{futbolcu.takım.isim}}</td>
+					<td class="text-center"> {{futbolcu.sarıkart_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.kırmızı_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	</div>-->
 		
-			<div class="tab-content">
-				<div id="Puan" class="tab-pane fade in active">
-				{% include 'ligler/superlig/genel_sıra.html'%}
-				</div>
-				<div id="fikstur" class="tab-pane fade">
-				{% include 'ligler/superlig/genel_fikstur.html'%}
-				</div>
-			</div>
- 
-<!-- Fikstür -->
-		</div><!-- col -->
-
-		<div class="col-md-4">
-		</div>
-	</div><!-- row -->
-</div><!-- container son -->
-
-</body>
+</div>
+		</div> <!-- col md-12 sonu alttaki genel navbar-->
+	</div><!-- ilk row sonu -->		
+</div>	
 <script src="{% static 'js/ligler/home.js'%}"></script>
-{% endblock %}	
-
-
-
-
-
-				
-				
-				
-				
-				
-				
-				
-				
-			
-				
-				
-				
-			
-				
-				
-				
-			
-				
-				
-				
-			
-				
-				
-				
-			
-				
-				
-				
-			
-				
-				
-			
-				
-				
-				
-				
-				
-				
-		
-		
-
-
-
-
-
+{% endblock %}

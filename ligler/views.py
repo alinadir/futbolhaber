@@ -1,7 +1,12 @@
-from django.shortcuts import render
-from .models import Klup,Fikstur,Hafta
+from django.shortcuts import render,HttpResponse,get_object_or_404,HttpResponseRedirect,redirect
+from home.models import SosyalMedia,Yorum,Yazi,Puan
+from .models import Fikstur,Oyuncu
+from django.utils.text import slugify
+from home.forms import CommentForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from operator import add
+from django.contrib import messages
+
 
 
 
@@ -9,138 +14,72 @@ from operator import add
 # Create your views here.
 def ligler_view(request):#ana sayfamızın
 	#oyuncular1 = Oyuncu.objects.order_by("toplam_gol_sayısı")
-	takımlar =Klup.objects.all()
-	fikstur1 = Fikstur.objects.filter(hafta="1")
-	fikstur2= Fikstur.objects.filter(hafta="2")
+	fikstur= Fikstur.objects.filter(mac_saati__range=["2018-02-18", "2018-04-24"])
+	#yazılar=Yazi.objects.all()[0:15]
+	yazıbjk = Yazi.objects.filter(konu__isim="Beşiktaş")[0:10]
+	yazıgs = Yazi.objects.filter(konu__isim="Galatasaray")[0:10]
+	yazıfb = Yazi.objects.filter(konu__isim="Fenerbahçe")[0:10]
+	yazıts = Yazi.objects.filter(konu__isim="Trabzonspor")[0:10]
+	yazıavr = Yazi.objects.filter(konu__isim="Avrupa")[0:10]
+	
+	
+	bjkfikstur=Fikstur.objects.filter(Q(takım1__isim="Beşiktaş")| Q(takım2__isim="Beşiktaş")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
+	gsfikstur=Fikstur.objects.filter(Q(takım1__isim="Galatasaray")| Q(takım2__isim="Galatasaray")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
+	fbfikstur=Fikstur.objects.filter(Q(takım1__isim="Fenerbahçe")| Q(takım2__isim="Fenerbahçe")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
+	tsfikstur=Fikstur.objects.filter(Q(takım1__isim="Trabzonspor")| Q(takım2__isim="Trabzonspor")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
+	
 
-	haftalar=['1',"2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34"]
-	durumlar =[]
 	
-	#Sample.objects.filter(date__range=["2011-01-01", "2011-01-31"])
-	#Sample.objects.filter(date__year='2011', date__month='01')
-	#queryset.filter(created_at__gte=datetime.date.today())
-	#__gte (greater than or equal) and __lte (less than or equal)
+	gol = Oyuncu.objects.order_by('-gol_sayısı','-asist_sayısı')[0:10]
+	asist = Oyuncu.objects.order_by('-asist_sayısı','-gol_sayısı')[0:10]
+	kartlar = Oyuncu.objects.order_by('-kırmızı_sayısı','-sarıkart_sayısı')[0:10]
 	
+	golbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-gol_sayısı','asist_sayısı')
+	asistbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-asist_sayısı','-gol_sayısı')
+	kartlarbjk = Oyuncu.objects.filter(takım__isim="Beşiktaş").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
-	haftalar =["1","2"]
-	fiksturler=[]
-	fiksturler_ev_dep=[]
-	for a in haftalar:
-		fiksturler.append(hafta_hafta_takimlar(a))
-		
-	for a in haftalar:
-		fiksturler_ev_dep.append(hafta_hafta_ev_dep(a))
+	golfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-gol_sayısı','asist_sayısı')
+	asistfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-asist_sayısı','-gol_sayısı')
+	kartlarfb = Oyuncu.objects.filter(takım__isim="Fenerbahçe").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
+	golts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-gol_sayısı','asist_sayısı')
+	asistts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-asist_sayısı','-gol_sayısı')
+	kartlarts = Oyuncu.objects.filter(takım__isim="Trabzonspor").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
 	
-		
-	sıra = []
-	sıra1 =[]
-	genel_sıra = []
-	for takım in takımlar:
-			
-			
-		#sıra1 = sıra1.append([{'name':takım.isim,"durum":durum1}])
-		sıra1.append([{'name':takım.isim,"durum":fiksturler[0][takım.isim]}])
-			
-		durum = takim_hafta_puan(fiksturler[0][takım.isim],fiksturler[1][takım.isim])
-		sıra.append([{'name':takım.isim,"durum":durum}])
-			
-			
-	#print(sıra)
-	sıralama=sirala(sıra)
-	sıralama1=sirala(sıra1)
-	genel_sıra.append(sıralama)
-	genel_sıra.append(sıralama1)
-	print(fikstur1)
-	print(fikstur2)
+	golgs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-gol_sayısı','asist_sayısı')
+	asistgs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-asist_sayısı','-gol_sayısı')
+	kartlargs = Oyuncu.objects.filter(takım__isim="Galatasaray").order_by('-kırmızı_sayısı','-sarıkart_sayısı')
+	
 	context = {
+		'yazıbjk':yazıbjk,
+		'yazıgs':yazıgs,
+		'yazıfb':yazıfb,
+		'yazıts':yazıts,
+		'yazıavr':yazıavr,
+		'fikstur':fikstur,
+		'bjkfikstur':bjkfikstur,
+		'fbfikstur':fbfikstur,
+		'gsfikstur':gsfikstur,
+		'tsfikstur':tsfikstur,
+		'gol':gol,
+		'asist':asist,
+		'kartlar':kartlar,
+		'golbjk':golbjk,
+		'asistbjk':asistbjk,
+		'kartlarbjk':kartlarbjk,
+		'golfb':golfb,
+		'asistfb':asistfb,
+		'kartlarfb':kartlarfb,	
+		'golgs':golgs,
+		'asistgs':asistgs,
+		'kartlargs':kartlargs,
+		'golts':golts,
+		'asistts':asistts,
+		'kartlarts':kartlarts,
 		
-		'sıra':sıra,
-		'sıra1': sıra1,
-		'sıralama':sıralama,
-		'genel_sıra':genel_sıra,
-		'fikstur1':fikstur1,
-		'fikstur2':fikstur2,
-	}
+		
+	}	
 		
 	return render(request,"ligler/superlig/home.html",context)#home.html in dire
 	
 
-def hafta_hafta_takimlar(a):
-	hafta = Fikstur.objects.filter(hafta__kacıncı_hafta=a)
-	neticeler = {}
-	#print(hafta)
-	for mac in hafta:
-		#durum[mac.takım1.isim]=[mac.oynadıgı_mac1, mac.puan1, mac.averaj1, mac.galibiyet1, mac.maglubiyet1, mac.beraberlik1]
-		#durum[mac.takım2.isim]=[mac.oynadıgı_mac2, mac.puan2, mac.averaj2, mac.galibiyet2, mac.maglubiyet2, mac.beraberlik2]
-		#print(mac)
-		neticeler[mac.takım1.isim] = [mac.oynadıgı_mac1, mac.galibiyet1, mac.beraberlik1, mac.maglubiyet1, mac.takım1_skor, mac.takım2_skor, mac.averaj1, mac.puan1,
-									  mac.oynadıgı_mac1, mac.galibiyet1, mac.beraberlik1, mac.maglubiyet1, mac.takım1_skor, mac.takım2_skor, mac.averaj1, mac.puan1,
-									  0,0, 0, 0, 0, 0, 0,0
-									 ]
-		#print(neticeler)
-		neticeler[mac.takım2.isim] = [mac.oynadıgı_mac2,mac.galibiyet2,mac.beraberlik2, mac.maglubiyet2, mac.takım2_skor, mac.takım1_skor, mac.averaj2, mac.puan2,
-									  0,0, 0, 0, 0, 0, 0,0,
-									  mac.oynadıgı_mac2,mac.galibiyet2,mac.beraberlik2, mac.maglubiyet2, mac.takım2_skor, mac.takım1_skor, mac.averaj2, mac.puan2
-									  ]
-		#print(neticeler)
-			
-		
-		
-		
-		
-		#baba.append(bir))
-		#baba.append(iki)
-		#print(a)
-		# newlist = sorted(a, key=lambda k: (k['durum'][0],k['durum'][1]))
-		#a = [{'name':"Beşiktaş","durum":[1,1,3]},{'name':"Galatasaray","durum":[1,0,3]},{'name':"Fener","durum":[1,2,3]}]
-	#print(neticeler)
-	return neticeler
-	
-def hafta_hafta_ev_dep(a):
-	hafta = Fikstur.objects.filter(hafta__kacıncı_hafta=a)
-	ev_sahibi_neticeler= {}
-	deplesman_neticeler= {}
-	tum_neticeler = []
-	#print(hafta)
-	for mac in hafta:
-		#durum[mac.takım1.isim]=[mac.oynadıgı_mac1, mac.puan1, mac.averaj1, mac.galibiyet1, mac.maglubiyet1, mac.beraberlik1]
-		#durum[mac.takım2.isim]=[mac.oynadıgı_mac2, mac.puan2, mac.averaj2, mac.galibiyet2, mac.maglubiyet2, mac.beraberlik2]
-		#print(mac)
-		ev_sahibi_neticeler[mac.takım1.isim] = [mac.oynadıgı_mac1, mac.galibiyet1, mac.beraberlik1, mac.maglubiyet1, mac.takım1_skor, mac.takım2_skor, mac.averaj1, mac.puan1,
-												mac.oynadıgı_mac1, mac.galibiyet1, mac.beraberlik1, mac.maglubiyet1, mac.takım1_skor, mac.takım2_skor, mac.averaj1, mac.puan1,
-												0,0, 0, 0, 0, 0, 0,0
-												]
-		#print(neticeler)
-		deplesman_neticeler[mac.takım2.isim] = [mac.oynadıgı_mac2,mac.galibiyet2,mac.beraberlik2, mac.maglubiyet2, mac.takım2_skor, mac.takım1_skor, mac.averaj2, mac.puan2,
-												0,0, 0, 0, 0, 0, 0,0,
-												mac.oynadıgı_mac2,mac.galibiyet2,mac.beraberlik2, mac.maglubiyet2, mac.takım2_skor, mac.takım1_skor, mac.averaj2, mac.puan2
-												]
-		#print(deplesman_neticeler)
-			
-		
-		
-		
-		
-		#baba.append(bir)
-		#baba.append(iki)
-		#print(a)
-		# newlist = sorted(a, key=lambda k: (k['durum'][0],k['durum'][1]))
-		#a = [{'name':"Beşiktaş","durum":[1,1,3]},{'name':"Galatasaray","durum":[1,0,3]},{'name':"Fener","durum":[1,2,3]}]
-	tum_neticeler.append(ev_sahibi_neticeler)
-	tum_neticeler.append(deplesman_neticeler)
-	return tum_neticeler
-
-def takim_hafta_puan(*args):
-	hepsi=[0,0,0,0,0,0,0,0,
-		   0,0,0,0,0,0,0,0,
-		   0,0,0,0,0,0,0,0]
-	for a in args:
-		#print(a)
-		hepsi = map(add,hepsi,a)
-	return list(hepsi)
-	
-
-def sirala(liste):
-	newlist = sorted(liste, key=lambda k: (k[0]['durum'][7],k[0]['durum'][6]))
-	return newlist

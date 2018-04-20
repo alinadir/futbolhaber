@@ -5,7 +5,7 @@ app_name='ligler'
 urlpatterns = [
     
 	
-	url(r'^ligler/superlig/$', ligler_view, name="super_lig"),
+	url(r'^ligler/superlig/$', ligler_view, name="home"),
 	#url(r'^ligler/(?P<a>[\w-]+)/$', ligler_view, name="super_lig"),
 	
 	

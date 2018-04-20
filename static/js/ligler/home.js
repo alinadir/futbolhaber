@@ -1,14 +1,13 @@
 $(document).ready(function(){
   
   
-   $(".alar").click(function(){
-        $(".puan").hide();
-		$("." + $(this).attr("id")).show();
-		$(".hafta").text($(this).text());
+  $(".mac").click(function(){
+        $(this).children('.ayrinti').toggle();
+		
 		 
     });
-  
-   $(".maclarım").click(function(){
+	
+	   $(".maclarım").click(function(){
         $(this).children('tr').toggle();
 		$(this).children('.goster').show();
 		 
