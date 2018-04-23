@@ -17,7 +17,9 @@ body {
     text-shadow: 1px 1px 1px #ccc;
     font-size:22px;
 }
-
+.rr{
+	margin-top:5px;
+}
 .navbar-inverse .navbar-brand {
     color: #fcf8e3;
 	font-family: 'Lobster', cursive;
