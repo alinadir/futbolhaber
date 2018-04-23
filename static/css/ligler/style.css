@@ -6,6 +6,12 @@ body {
 	color:white;
 	font-weight:bold;	
 }
+
+.fa-home{
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
 .far {
 	color:black;
     text-shadow: 1px 1px 1px #ccc;

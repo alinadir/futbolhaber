@@ -1,5 +1,5 @@
 <div class="aaa">
-	<ul class="list-group">
+	<ul class="list-group yorum">
 		{% for yorum in sosyal.comments.all %}
 			<li class="list-group-item">"{{yorum.yorumunuz|truncatechars:300}}"<br><div class="text-center"><b>---<cite>{{yorum.isim}}--- <small>{{yorum.created_date}}</small></cite></b></div>
 			</li>

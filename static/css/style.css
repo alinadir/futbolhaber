@@ -11,6 +11,10 @@ body {
     text-shadow: 1px 1px 1px #ccc;
     font-size:22px;
 }
+.fa-home{
+	padding-top:3px;
+	padding-bottom:3px;
+}
 
 .navbar-inverse .navbar-brand {
     color: #fcf8e3;
@@ -99,6 +103,7 @@ h3 {
 	 cursor:pointer;
  }
  
+
  h2 {
 	 padding-top:0;
 	 margin-top:0;
@@ -201,4 +206,20 @@ border:1px solid #333333;
 	border:solid;
 	border-color:black;
 	margin-bottom:5px;
+}
+.nav>.ekstra-link {
+	display:none;
+}
+@media (max-width: 767px) {
+body {
+	
+	}
+.col-md-5{
+	display:none;
+}
+.nav>.ekstra-link {
+	display:block;
+}
+
+
 }
