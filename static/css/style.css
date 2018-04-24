@@ -9,6 +9,9 @@ body {
 .rr{
 	margin-top:5px;
 }
+.nav>.yaz {
+	display:none;
+}
 .reklam {
 	margin-top:10px;
 	margin-bottom:10px;
@@ -75,6 +78,7 @@ h3 {
 }
 
 .kenar {
+	margin-top:10px;
 	cursor:pointer;
 	margin-bottom:13px;
 	background-color:white;
@@ -227,6 +231,7 @@ body {
 .nav>.ekstra-link {
 	display:block;
 }
-
-
+.nav>.yaz {
+	display:block;
+}
 }
