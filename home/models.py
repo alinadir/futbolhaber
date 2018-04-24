@@ -64,7 +64,7 @@ class SosyalMedia(models.Model):
 class Yorum(models.Model):
 	post = models.ForeignKey(SosyalMedia, related_name="comments",on_delete=models.CASCADE)
 	isim = models.CharField(max_length=50)
-	yorumunuz=models.TextField()
+	yorumunuz=models.TextField(max_length=300)
 	created_date = models.DateTimeField(auto_now_add=True)
 	
 	def __str__(self):#bu metot admin paneline eklediğimiz postların title adında gözükmesini sağlıyor.
