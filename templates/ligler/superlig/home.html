@@ -30,28 +30,24 @@
 				<li><a data-toggle="tab" href="#FB" title = "Fenerbahçe Haberleri">FB</a></li>
 				<li><a data-toggle="tab" href="#GS" title = "Galatasaray Haberleri">GS</a></li>
 				<li><a data-toggle="tab" href="#TS" title = "Trabzonspor Haberleri">TS</a></li>
-				<li><a data-toggle="tab" href="#AVR" title = "Avrupadan Haberler">AVR</a></li>
-				<li><a data-toggle="tab" href="#AVR" title = "Avrupadan Haberler">FZ</a></li>
+				
 			</ul>
 <div class="tab-content">
 
 	<div id="genel" class="tab-pane fade in active ">
-	{% include 'home/tv_fikstur.html' %}
-			
-	</div>
-	<div id="fikstur" class="tab-pane fade">
-							
-	</div>
+	<h3 class="border-bottom border border-white">Fikstür</h3>
 	
-	<div id="golgenel" class="tab-pane fade">
+	{% include 'home/tv_fikstur.html' %}
+			<h3>Gol Krallığı</h3>
+	
 		<table  class="table table-bordered ">
 			<thead>
 				<tr>
 					<td class="col-md-5">Futbolcu</td>
 					<td class="col-md-5">Takım</td>
-					<td class="col-md-1">Maç</td>
+					<td class="col-md-1 text-center">Maç</td>
 					<!--<td class="col-md-1">Asist</td>-->
-					<td class="col-md-1">Gol</td>
+					<td class="col-md-1 text-center">Gol</td>
 					
 				</tr>
 			</thead>
@@ -70,16 +66,15 @@
 			{% endfor %}	
 			</tbody>
 		</table>
-	</div>
-	<div id="asistgenel" class="tab-pane fade">
-		<table  class="table table-bordered ">
+	<h3>Asist Krallığı</h3>
+	<table  class="table table-bordered ">
 			<thead>
 				<tr>
 					<td class="col-md-5">Futbolcu</td>
 					<td class="col-md-5">Takım</td>				
-					<td class="col-md-1">Maç</td>
+					<td class="col-md-1 text-center">Maç</td>
 					<!--<td class="col-md-1">Gol</td>-->
-					<td class="col-md-1">Asist</td>
+					<td class="col-md-1 text-center">Asist</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -96,25 +91,83 @@
 			{% endfor %}	
 			</tbody>
 		</table>
+	
+	
 	</div>
-
-	<!--<div id="kartgenel" class="tab-pane fade">
+	<div id="BJK" class="tab-pane fade">
+		<h3 class="border-bottom border border-white">Fikstür</h3>
+		{% include 'home/bjk_fikstur.html' %}
+		
+	
+	
+			<h3>Gol Krallığı</h3>
+	
 		<table  class="table table-bordered ">
 			<thead>
 				<tr>
-					<td class="col-md-4">Futbolcu</td>
-					<td class="col-md-4">Takım</td>
-					<td class="col-md-1">Sarı</td>
-					<td class="col-md-2">Kırmızı</td>
-					<td class="col-md-1">Maç</td>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Maç</td>
+					<td class="col-md-2 text-center">Asist</td>
+					<td class="col-md-2 text-center">Gol</td>
 				</tr>
 			</thead>
 			<tbody>
-			{% for futbolcu in kartlar %}
+			{% for futbolcu in golbjk %}
 				<tr class="success">
 				
 					<td> {{futbolcu.isim}} </td>
-					<td> {{futbolcu.takım.isim}}</td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	<h3>Asist Krallığı</h3>
+	<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Maç</td>
+					<td class="col-md-2 text-center">Gol</td>
+					<td class="col-md-2 text-center">Asist</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in asistbjk %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+		<h3>Kart Tablosu</h3>
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Sarı</td>
+					<td class="col-md-2 text-center">Kırmızı</td>
+					<td class="col-md-2 text-center">Maç</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in kartlarbjk %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
 					<td class="text-center"> {{futbolcu.sarıkart_sayısı}} </td>
 					<td class="text-center"> {{futbolcu.kırmızı_sayısı}} </td>
 					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
@@ -123,7 +176,260 @@
 			{% endfor %}	
 			</tbody>
 		</table>
-	</div>-->
+	</div>
+	
+	<div id="FB" class="tab-pane fade">
+		<h3 class="border-bottom border border-white">Fikstür</h3>
+		{% include 'home/fb_fikstur.html' %}
+		
+	
+	
+			<h3>Gol Krallığı</h3>
+	
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Maç</td>
+					<td class="col-md-2 text-center">Asist</td>
+					<td class="col-md-2 text-center">Gol</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in golfb %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	<h3>Asist Krallığı</h3>
+	<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Maç</td>
+					<td class="col-md-2 text-center">Gol</td>
+					<td class="col-md-2 text-center">Asist</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in asistfb %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+		<h3>Kart Tablosu</h3>
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Sarı</td>
+					<td class="col-md-2 text-center">Kırmızı</td>
+					<td class="col-md-2 text-center">Maç</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in kartlarfb %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.sarıkart_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.kırmızı_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+	
+	<div id="GS" class="tab-pane fade">
+		<h3 class="border-bottom border border-white">Fikstür</h3>
+		{% include 'home/gs_fikstur.html' %}
+		
+	
+	
+			<h3>Gol Krallığı</h3>
+	
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Maç</td>
+					<td class="col-md-2 text-center">Asist</td>
+					<td class="col-md-2 text-center">Gol</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in golgs %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	<h3>Asist Krallığı</h3>
+	<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Maç</td>
+					<td class="col-md-2 text-center">Gol</td>
+					<td class="col-md-2 text-center">Asist</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in asistgs %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+		<h3>Kart Tablosu</h3>
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Sarı</td>
+					<td class="col-md-2 text-center">Kırmızı</td>
+					<td class="col-md-2 text-center">Maç</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in kartlargs %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.sarıkart_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.kırmızı_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+	
+	
+	<div id="TS" class="tab-pane fade">
+		<h3 class="border-bottom border border-white">Fikstür</h3>
+		{% include 'home/ts_fikstur.html' %}
+		
+	
+	
+			<h3>Gol Krallığı</h3>
+	
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Maç</td>
+					<td class="col-md-2 text-center">Asist</td>
+					<td class="col-md-2 text-center">Gol</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in golts %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	<h3>Asist Krallığı</h3>
+	<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Maç</td>
+					<td class="col-md-2 text-center">Gol</td>
+					<td class="col-md-2 text-center">Asist</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in asistts %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.gol_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.asist_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+		<h3>Kart Tablosu</h3>
+		<table  class="table table-bordered ">
+			<thead>
+				<tr>
+					<td class="col-md-6">Futbolcu</td>
+					
+					<td class="col-md-2 text-center">Sarı</td>
+					<td class="col-md-2 text-center">Kırmızı</td>
+					<td class="col-md-2 text-center">Maç</td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for futbolcu in kartlarts %}
+				<tr class="success">
+				
+					<td> {{futbolcu.isim}} </td>
+					
+					<td class="text-center"> {{futbolcu.sarıkart_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.kırmızı_sayısı}} </td>
+					<td class="text-center"> {{futbolcu.mac_sayısı}} </td>
+				
+				</tr>
+			{% endfor %}	
+			</tbody>
+		</table>
+	</div>
 		
 </div>
 		</div> <!-- col md-12 sonu alttaki genel navbar-->
