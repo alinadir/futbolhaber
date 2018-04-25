@@ -25,7 +25,7 @@ def home_view(request):
 	fbfikstur=Fikstur.objects.filter(Q(takım1__isim="Fenerbahçe")| Q(takım2__isim="Fenerbahçe")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
 	tsfikstur=Fikstur.objects.filter(Q(takım1__isim="Trabzonspor")| Q(takım2__isim="Trabzonspor")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
 	
-	sosyaller = SosyalMedia.objects.all()[0:55]
+	sosyaller = SosyalMedia.objects.all()
 	#sosyaller1 = SosyalMedia.objects.all()[40:54]
 	bjk = SosyalMedia.objects.filter(konu__isim__icontains="Beşiktaş")[0:35]
 	fb = SosyalMedia.objects.filter(konu__isim__icontains="Fenerbahçe")[0:35]
