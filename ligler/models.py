@@ -167,7 +167,7 @@ class Oyuncu(models.Model):
 		return self.isim
 	
 	class Meta:
-		ordering = ['mac_sayısı']
+		ordering = ['gol_sayısı','asist_sayısı','sarıkart_sayısı','kırmızı_sayısı','mac_sayısı']
 
 
 
