@@ -37,7 +37,17 @@
 				<li><a data-toggle="tab" href="#GS" title = "Galatasaray Haberleri">GS</a></li>
 				<li><a data-toggle="tab" href="#TS" title = "Trabzonspor Haberleri">TS</a></li>
 				<li><a data-toggle="tab" href="#AVR" title = "Avrupadan Haberler">AVR</a></li>
-				<li class="yaz"><a data-toggle="tab" href="#AVR" title = "Avrupadan Haberler">FZ</a></li>
+				<li class="yaz"><a data-toggle="tab" href="#AVR" title = "Köşe Yazıları">FZ</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">...<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					<li><a data-toggle="tab" href="#AVR">Süper Lig</a></li>
+					<li><a data-toggle="tab" href="#">Türkiye Kupası</a></li>
+					<li><a data-toggle="tab" href="#">İtalya Ligi </a></li>
+					<li role="separator" class="divider"></li>
+					<li><a data-toggle="tab" href="#Yaz">Köşe Yazıları</a></li>
+					</ul>
+			   </li>
 			</ul>
 		
 
@@ -185,6 +195,22 @@
 			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
 				{% include 'home/yazı_avr.html' %}
 			</div><!-- Fikstür vesaire -->
+		</div>
+    </div>
+	
+		<div id="Yaz" class="tab-pane fade yaz">
+    <div class="row">
+			<div class="col-md-12 col-sm-12"> 
+			{% for yazi in yazılar %}
+		<div class="kenar well well-sm">
+			<h3>{{yazi.yazının_baslıgı}}</h3>
+			<div class="truncate text-justify"><p>{{yazi.ana_content|safe|truncatechars:240}}</p></div>
+			<div class="gizli text-justify"><p>{{yazi.ana_content|safe}}</p></div>
+			<p class="text-center"><b>---{{yazi.yazar.isim}}---</b></p>
+		</div>
+			{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			
 		</div>
     </div>
 	

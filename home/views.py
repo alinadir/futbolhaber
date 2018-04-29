@@ -113,7 +113,7 @@ def home_view(request):
 		
 		
 		
-	return render(request,"home/home.html",context)#home.html in dire
+	return render(request,"home/home1.html",context)#home.html in dire
 	
 
 	
