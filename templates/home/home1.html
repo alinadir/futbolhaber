@@ -41,7 +41,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">...<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-					<li><a data-toggle="tab" href="#AVR">Süper Lig</a></li>
+					<li><a data-toggle="tab" href="#super">Süper Lig</a></li>
 					<li><a data-toggle="tab" href="#">Türkiye Kupası</a></li>
 					<li><a data-toggle="tab" href="#">İtalya Ligi </a></li>
 					<li role="separator" class="divider"></li>
@@ -208,6 +208,28 @@
 			<div class="gizli text-justify"><p>{{yazi.ana_content|safe}}</p></div>
 			<p class="text-center"><b>---{{yazi.yazar.isim}}---</b></p>
 		</div>
+			{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			
+		</div>
+    </div>
+	
+	<div id="super" class="tab-pane fade yaz">
+    <div class="row">
+			<div class="col-md-12 col-sm-12"> 
+			{% for sosyal in super %}
+				<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
+					</div>
+					<div class="media-body">
+						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
+					
+					</div>
+					<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+				</div>
+				{% include 'home/buttons.html' %}
+				{% include 'home/yorum.html' %}
 			{% endfor %}
 			</div><!-- Kim Ne Demiş Köşesi sonu -->
 			

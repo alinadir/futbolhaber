@@ -25,13 +25,15 @@ def home_view(request):
 	fbfikstur=Fikstur.objects.filter(Q(takım1__isim="Fenerbahçe")| Q(takım2__isim="Fenerbahçe")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
 	tsfikstur=Fikstur.objects.filter(Q(takım1__isim="Trabzonspor")| Q(takım2__isim="Trabzonspor")).filter(mac_saati__range=["2018-04-01", "2018-08-10"])
 	
-	sosyaller = SosyalMedia.objects.all()
+	sosyaller = SosyalMedia.objects.all()[0:75]
 	#sosyaller1 = SosyalMedia.objects.all()[40:54]
 	bjk = SosyalMedia.objects.filter(konu__isim__icontains="Beşiktaş")[0:35]
 	fb = SosyalMedia.objects.filter(konu__isim__icontains="Fenerbahçe")[0:35]
 	gs = SosyalMedia.objects.filter(konu__isim__icontains="Galatasaray")[0:35]
 	ts = SosyalMedia.objects.filter(konu__isim__icontains="Trabzonspor")[0:35]
 	avr = SosyalMedia.objects.filter(konu__isim__icontains="Avrupa")[0:35]
+	super = SosyalMedia.objects.filter(isim__isim="Süper Lig")[0:35]
+	kupa = SosyalMedia.objects.filter(isim__isim="Türkiye Kupası")[0:35]
 	
 	gol = Oyuncu.objects.order_by('-gol_sayısı','-asist_sayısı')[0:10]
 	asist = Oyuncu.objects.order_by('-asist_sayısı','-gol_sayısı')[0:10]
@@ -76,6 +78,8 @@ def home_view(request):
 		'gs':gs,
 		'ts':ts,
 		'avr':avr,
+		'super':super,
+		'kupa':kupa,
 		'takımlar':takımlar,
 		'yazılar':yazılar,
 		'yazıbjk':yazıbjk,
@@ -105,6 +109,7 @@ def home_view(request):
 		'kartlarts':kartlarts,
 		
 		
+		
 	}	
 	#if request.GET:
 	#	a=request.GET['key1']
@@ -113,7 +118,7 @@ def home_view(request):
 		
 		
 		
-	return render(request,"home/home1.html",context)#home.html in dire
+	return render(request,"home/home.html",context)#home.html in dire
 	
 
 	

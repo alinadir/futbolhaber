@@ -37,6 +37,10 @@
 </script>
 </div>
 </div>
+<div class="row">
+<div class="col-md-2 col-sm-2">
+</div>
+<div class="col-md-8">
 	<div class="row rr">
 	<!-- col-md-8 -->
 		<div class="col-md-12 col-sm-12"> <!-- Genel Navbar -->
@@ -50,14 +54,22 @@
 				<li><a data-toggle="tab" href="#GS" title = "Galatasaray Haberleri">GS</a></li>
 				<li><a data-toggle="tab" href="#TS" title = "Trabzonspor Haberleri">TS</a></li>
 				<li><a data-toggle="tab" href="#AVR" title = "Avrupadan Haberler">AVR</a></li>
-				<li class="yaz"><a data-toggle="tab" href="#Yaz" title = "Köşe Yazıları">FZ</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">...<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					<li><a data-toggle="tab" href="#super">Süper Lig</a></li>
+					<li><a data-toggle="tab" href="#kupa">Türkiye Kupası</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a data-toggle="tab" href="#Yaz">Köşe Yazıları</a></li>
+					</ul>
+			   </li>
 			</ul>
 		
 
 			<div class="tab-content">
 				<div id="genel" class="tab-pane fade in active"><!-- Ana sayfadaki Haberler -->
 					<div class="row">
-						<div class=" col-xs-12 col-md-7 col-sm-7"> <!--Genel Haberler -->
+						<div class=" col-xs-12 col-md-12 col-sm-12"> <!--Genel Haberler -->
 						
 						
 						
@@ -126,15 +138,13 @@
 					   {% endfor %}
 						</div> <!-- Genel Haberler -->
 	
-						<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
-						{% include 'home/yazılar.html' %}
-						</div><!-- Fikstür vesaire -->
+						
 					</div> 
 				</div> <!-- Ana sayfadaki Haberlerin sonu -->
 	
 				<div id="BJK" class="tab-pane fade"> <!-- BJK bölümü -->
 					<div class="row">
-						<div class="col-md-7 col-sm-7"> 
+						<div class="col-md-12 col-sm-12"> 
 						{% for sosyal in bjk %}
 							<div class="media">
 								<div class="media-left media-top">
@@ -149,15 +159,13 @@
 							{% include 'home/yorum.html' %}
 							{% endfor %}
 							</div><!-- Kim Ne Demiş Köşesi sonu -->
-							<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
-							{% include 'home/yazı_bjk.html' %}
-							</div><!-- Fikstür vesaire -->
+							
 					</div>
 				</div> <!-- BJK bölümü sonu -->
 	
     <div id="FB" class="tab-pane fade">
         <div class="row">
-			<div class="col-md-7 col-sm-7"> 
+			<div class="col-md-12 col-sm-12"> 
 			{% for sosyal in fb %}
 				<div class="media">
 					<div class="media-left media-top">
@@ -173,15 +181,13 @@
 				{% include 'home/yorum.html' %}
 			{% endfor %}
 			</div><!-- Kim Ne Demiş Köşesi sonu -->
-			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
-				{% include 'home/yazı_fb.html' %}
-			</div><!-- Fikstür vesaire -->
+			
 		</div>
     </div>
 	
     <div id="GS" class="tab-pane fade">
     <div class="row">
-			<div class="col-md-7 col-sm-7"> 
+			<div class="col-md-12 col-sm-12"> 
 			{% for sosyal in gs %}
 				<div class="media">
 					<div class="media-left media-top">
@@ -197,15 +203,13 @@
 				{% include 'home/yorum.html' %}
 			{% endfor %}
 			</div><!-- Kim Ne Demiş Köşesi sonu -->
-			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
-				{% include 'home/yazı_gs.html' %}
-			</div><!-- Fikstür vesaire -->
+			
 		</div>
     </div>
 	
 	<div id="TS" class="tab-pane fade">
     <div class="row">
-			<div class="col-md-7 col-sm-7"> 
+			<div class="col-md-12 col-sm-12"> 
 			{% for sosyal in ts %}
 				<div class="media">
 					<div class="media-left media-top">
@@ -221,15 +225,13 @@
 				{% include 'home/yorum.html' %}
 			{% endfor %}
 			</div><!-- Kim Ne Demiş Köşesi sonu -->
-			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
-				{% include 'home/yazı_ts.html' %}
-			</div><!-- Fikstür vesaire -->
+			
 		</div>
     </div>
 	
 	<div id="AVR" class="tab-pane fade">
     <div class="row">
-			<div class="col-md-7 col-sm-7"> 
+			<div class="col-md-12 col-sm-12"> 
 			{% for sosyal in avr %}
 				<div class="media">
 					<div class="media-left media-top">
@@ -245,15 +247,13 @@
 				{% include 'home/yorum.html' %}
 			{% endfor %}
 			</div><!-- Kim Ne Demiş Köşesi sonu -->
-			<div class=" col-xs-12 col-md-5 col-sm-5">  <!-- Fikstür vesaire -->
-				{% include 'home/yazı_avr.html' %}
-			</div><!-- Fikstür vesaire -->
+			
 		</div>
     </div>
 	
 	<div id="Yaz" class="tab-pane fade yaz">
     <div class="row">
-			<div class="col-md-7 col-sm-7"> 
+			<div class="col-md-12 col-sm-12"> 
 			{% for yazi in yazılar %}
 		<div class="kenar well well-sm">
 			<h3>{{yazi.yazının_baslıgı}}</h3>
@@ -267,9 +267,57 @@
 		</div>
     </div>
 	
+	<div id="super" class="tab-pane fade yaz">
+    <div class="row">
+			<div class="col-md-12 col-sm-12"> 
+			{% for sosyal in super %}
+				<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
+					</div>
+					<div class="media-body">
+						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
+					
+					</div>
+					<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+				</div>
+				{% include 'home/buttons.html' %}
+				{% include 'home/yorum.html' %}
+			{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			
+		</div>
+    </div>
+	
+	<div id="kupa" class="tab-pane fade yaz">
+    <div class="row">
+			<div class="col-md-12 col-sm-12"> 
+			{% for sosyal in kupa %}
+				<div class="media">
+					<div class="media-left media-top">
+						<img class="media-object" src="{{ sosyal.isim.image.url }}" alt="{{sosyal.isim.isim}}">
+					</div>
+					<div class="media-body">
+						<h5 class="ert"><b>{{sosyal.isim.isim}}:</b> "{{sosyal.content1 |truncatechars:200}}".</h5>	
+					
+					</div>
+					<div class="abc text-justify"> <p> {{sosyal.content2|safe|linebreaks }}</p> <p><b>{{sosyal.publishing_date|timesince}} önce</b></p>  </div>		
+				</div>
+				{% include 'home/buttons.html' %}
+				{% include 'home/yorum.html' %}
+			{% endfor %}
+			</div><!-- Kim Ne Demiş Köşesi sonu -->
+			
+		</div>
+    </div>
+	
   </div>
 		</div> <!-- col md-12 sonu alttaki genel navbar-->
-	</div><!-- ilk row sonu -->		
+	</div><!-- ilk row sonu -->	
+</div>
+<div class="col-md-2 col-sm-2">
+</div>
+	</div>
 </div>			
 <script src="{% static 'js/home/home.js'%}"></script>
 
